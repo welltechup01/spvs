@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { resultAPI, tcAPI } from '../../api'
 import ResultCard from './Result'
-import TcCertificate from './TcCertificate'
+import TcCertificate from './Tccertificate'
 import CertPreloader from './CertPreloader'
 import {
   FaTrophy, FaClipboardList, FaCalendarAlt, FaTicketAlt,
