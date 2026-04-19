@@ -1,3 +1,4 @@
+in frotend i aded vercel.json
 const express = require('express')
 const dotenv  = require('dotenv')
 const cors    = require('cors')
@@ -46,15 +47,6 @@ app.use('/api/mandatory-disclosure',   require('./routes/mandatoryDisclosureRout
 
 // Health check
 app.get('/', (req, res) => res.json({ message: 'SPVS Backend Running ✅' }))
-
-app.get('/health', (req, res) => {
-  res.status(200).json({
-    status: 'OK',
-    message: 'SPVS Backend Healthy 🚀',
-    uptime: process.uptime(),
-    timestamp: new Date()
-  })
-})
 
 app.use(errorHandler)
 
