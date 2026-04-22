@@ -363,22 +363,7 @@ export default function Navbar() {
               <a href={ytLink} target="_blank" rel="noopener noreferrer" className="mob-soc-btn mob-soc-yt" aria-label="YouTube"><FaYoutube size={16}/></a>
             </div>
 
-            <div style={{paddingTop:'12px',borderTop:'1px solid rgba(232,118,26,.08)',display:'flex',justifyContent:'center'}}>
-              <a href="https://www.welltechup.com" target="_blank" rel="noopener noreferrer"
-                style={{display:'flex',alignItems:'center',gap:'10px',textDecoration:'none',transition:'all .25s',paddingLeft:'20px'}}
-                onMouseEnter={function(e){e.currentTarget.style.transform='translateY(-2px)'}}
-                onMouseLeave={function(e){e.currentTarget.style.transform='none'}}>
-                <img src="/images/welltechup_logo.jpg" alt="Welltechup"
-                  style={{width:'36px',height:'36px',borderRadius:'10px',objectFit:'cover',flexShrink:0,boxShadow:'0 2px 8px rgba(0,0,0,.15)'}}
-                  onError={function(e){e.target.style.display='none';e.target.nextSibling.style.display='flex'}}
-                />
-                <div style={{display:'none',width:'36px',height:'36px',borderRadius:'10px',background:'linear-gradient(135deg,#6C3FC5,#9B59F5)',alignItems:'center',justifyContent:'center',fontSize:'15px',fontWeight:900,color:'#fff',flexShrink:0}}>W</div>
-                <div>
-                  <div style={{fontFamily:"'Poppins',sans-serif",fontSize:'9px',fontWeight:500,color:'#B87832',letterSpacing:'1.5px',textTransform:'uppercase',marginBottom:'2px'}}>Designed &amp; Developed by</div>
-                  <div style={{fontFamily:"'Poppins',sans-serif",fontSize:'15px',fontWeight:700,color:'#FF3B3B',letterSpacing:'.8px',textTransform:'uppercase',lineHeight:1}}>WELLTECHUP</div>
-                </div>
-              </a>
-            </div>
+
           </div>
         </div>
       )}
