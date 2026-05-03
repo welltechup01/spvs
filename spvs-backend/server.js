@@ -13,7 +13,7 @@ app.use(cors({
   origin: [
     'http://localhost:5173',
     'http://localhost:3000',
-    'https://spvs-two.vercel.app'      // ← your actual Vercel URL
+    'https://spvs-green.vercel.app'      // ← your actual Vercel URL
   ],
   credentials: true
 }))
