@@ -1,4 +1,3 @@
-
 const express = require('express')
 const dotenv  = require('dotenv')
 const cors    = require('cors')
@@ -9,18 +8,18 @@ const errorHandler = require('./middleware/errorHandler')
 dotenv.config()
 connectDB()
 
+const app = express()   // ← THIS WAS MISSING
+
 app.use(cors({
   origin: [
     'http://localhost:5173',
     'http://localhost:3000',
-    'https://spvs-green.vercel.app'      // ← your actual Vercel URL
+    'https://spvs-green.vercel.app'
   ],
   credentials: true
 }))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-
-// ✅ Serve static files — PDFs served directly from public folder
 app.use(express.static(path.join(__dirname, 'public')))
 
 // Routes
@@ -44,7 +43,6 @@ app.use('/api/settings',               require('./routes/settingsRoutes'))
 app.use('/api/site-status',            require('./routes/siteStatusRoutes'))
 app.use('/api/mandatory-disclosure',   require('./routes/mandatoryDisclosureRoutes'))
 
-// Health check
 app.get('/', (req, res) => res.json({ message: 'SPVS Backend Running ✅' }))
 
 app.use(errorHandler)
