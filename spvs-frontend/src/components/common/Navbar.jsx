@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { announcementAPI } from '../../api'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import useSettings from '../../hooks/useSettings'
 import {
   FaPhone, FaEnvelope, FaMapMarkerAlt,
@@ -48,33 +48,72 @@ const SOCIAL_LINKS = {
   youtube:   'https://youtube.com/@santpathikvidyalayabahraic9459?si=NccPMOyCjrsklcoc',
 }
 
-/* ── Dropdown data — icons instead of emojis ── */
+/* ── Hash-aware navigation helper ── */
+function useHashNav() {
+  const navigate  = useNavigate()
+  const location  = useLocation()
+
+  return function goTo(to) {
+    var parts   = to.split('#')
+    var path    = parts[0]
+    var hash    = parts[1] ? '#' + parts[1] : ''
+
+    if (!hash) {
+      navigate(to)
+      return
+    }
+
+    if (location.pathname === path || (path === '' && hash)) {
+      // Already on the page — just scroll
+      var el = document.getElementById(parts[1])
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    } else {
+      // Navigate first, then scroll after page loads
+      navigate(path + hash)
+      setTimeout(function() {
+        var el2 = document.getElementById(parts[1])
+        if (el2) el2.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }, 350)
+    }
+  }
+}
+
 const ABOUT_DROPDOWN = [
-  { to:'/about#history',    icon:<FaLandmark size={16} color="#000"/>,        label:'School History',      desc:'Our journey since 1987' },
-  { to:'/about#vision',     icon:<FaBullseye size={16} color="#000"/>,        label:'Vision & Mission',    desc:'Our guiding principles' },
-  { to:'/about#director',   icon:<FaUserTie size={16} color="#000"/>,         label:"Director's Message",  desc:'Message from the Director' },
-  { to:'/about#principal',  icon:<FaChalkboardTeacher size={16} color="#000"/>,label:"Principal's Message",desc:'Message from the Principal' },
-  { to:'/academics/faculty',icon:<FaUsers size={16} color="#000"/>,           label:'Faculty & Staff',     desc:'64+ expert educators' },
-  { to:'/why-choose-us',    icon:<FaStar size={16} color="#000"/>,            label:'Why Choose Us',       desc:'What makes SPVS special' },
+  { to:'/about#history',    icon:<FaLandmark size={16} color="#000"/>,         label:'School History',      desc:'Our journey since 1987' },
+  { to:'/about#vision',     icon:<FaBullseye size={16} color="#000"/>,         label:'Vision & Mission',    desc:'Our guiding principles' },
+  { to:'/about#director',   icon:<FaUserTie size={16} color="#000"/>,          label:"Director's Message",  desc:'Message from the Director' },
+  { to:'/about#principal',  icon:<FaChalkboardTeacher size={16} color="#000"/>,label:"Principal's Message", desc:'Message from the Principal' },
+  { to:'/academics/faculty',icon:<FaUsers size={16} color="#000"/>,            label:'Faculty & Staff',     desc:'64+ expert educators' },
+  { to:'/why-choose-us',    icon:<FaStar size={16} color="#000"/>,             label:'Why Choose Us',       desc:'What makes SPVS special' },
 ]
 
 const FACILITIES_DROPDOWN = [
-  { to:'/facilities#hostel',     icon:<FaHome size={16} color="#000"/>,     label:'Hostel',           desc:'Safe residential facility', highlight:true },
-  { to:'/facilities#labs',       icon:<FaFlask size={16} color="#000"/>,    label:'Science Labs',     desc:'Physics · Chemistry · Bio' },
-  { to:'/facilities#library',    icon:<FaBook size={16} color="#000"/>,     label:'Library',          desc:'10,000+ books & e-resources' },
-  { to:'/facilities#smartclass', icon:<FaDesktop size={16} color="#000"/>,  label:'Smart Classrooms', desc:'Digital learning boards' },
-  { to:'/facilities#transport',  icon:<FaBus size={16} color="#000"/>,      label:'Transport',        desc:'GPS-tracked buses all routes' },
-  { to:'/facilities#sports',     icon:<FaFutbol size={16} color="#000"/>,   label:'Sports Ground',    desc:'Cricket · Football · Athletics' },
+  { to:'/facilities#hostel',     icon:<FaHome size={16} color="#000"/>,    label:'Hostel',           desc:'Safe residential facility', highlight:true },
+  { to:'/facilities#labs',       icon:<FaFlask size={16} color="#000"/>,   label:'Science Labs',     desc:'Physics · Chemistry · Bio' },
+  { to:'/facilities#library',    icon:<FaBook size={16} color="#000"/>,    label:'Library',          desc:'10,000+ books & e-resources' },
+  { to:'/facilities#smartclass', icon:<FaDesktop size={16} color="#000"/>, label:'Smart Classrooms', desc:'Digital learning boards' },
+  { to:'/facilities#transport',  icon:<FaBus size={16} color="#000"/>,     label:'Transport',        desc:'GPS-tracked buses all routes' },
+  { to:'/facilities#sports',     icon:<FaFutbol size={16} color="#000"/>,  label:'Sports Ground',    desc:'Cricket · Football · Athletics' },
 ]
 
+/* ── DropPanel — uses goTo for hash scrolling ── */
 function DropPanel({ items, onClose }) {
+  var goTo = useHashNav()
+
+  function handleClick(e, to) {
+    e.preventDefault()
+    onClose()
+    goTo(to)
+  }
+
   return (
     <div style={{position:'absolute',top:'calc(100% + 14px)',left:'50%',transform:'translateX(-50%)',background:'#ffffff',border:'1.5px solid rgba(232,118,26,.15)',borderRadius:'20px',boxShadow:'0 28px 70px rgba(232,118,26,.18),0 6px 24px rgba(0,0,0,.07)',padding:'10px',minWidth:'290px',zIndex:500,animation:'dropIn 0.28s cubic-bezier(.34,1.56,.64,1) both'}}>
       <div style={{position:'absolute',top:'-8px',left:'50%',transform:'translateX(-50%) rotate(45deg)',width:'14px',height:'14px',background:'#fff',border:'1.5px solid rgba(232,118,26,.15)',borderBottom:'none',borderRight:'none'}}/>
       {items.map(function(item) {
         var { to, icon, label, desc, highlight } = item
         return (
-          <Link key={to} to={to} onClick={onClose}
+          <a key={to} href={to}
+            onClick={function(e){ handleClick(e, to) }}
             style={{display:'flex',alignItems:'center',gap:'12px',padding:'10px 14px',borderRadius:'13px',marginBottom:'3px',textDecoration:'none',background:highlight?'linear-gradient(135deg,#FFF3E0,#FFF8DC)':'transparent',border:`1.5px solid ${highlight?'rgba(232,118,26,.28)':'transparent'}`,transition:'all 0.2s'}}
             onMouseEnter={function(e){e.currentTarget.style.background=highlight?'linear-gradient(135deg,#FFE4BC,#FFF3C0)':'rgba(232,118,26,.06)';e.currentTarget.style.transform='translateX(4px)'}}
             onMouseLeave={function(e){e.currentTarget.style.background=highlight?'linear-gradient(135deg,#FFF3E0,#FFF8DC)':'transparent';e.currentTarget.style.transform=''}}
@@ -85,11 +124,10 @@ function DropPanel({ items, onClose }) {
             <div style={{flex:1}}>
               <div style={{fontFamily:"'Poppins',sans-serif",fontSize:'13.5px',fontWeight:highlight?700:600,color:highlight?'#C45F0A':'#2C1500',display:'flex',alignItems:'center',gap:'7px'}}>
                 {label}
-                
               </div>
               <div style={{fontFamily:"'Poppins',sans-serif",fontSize:'11.5px',fontWeight:400,color:'#B87832',marginTop:'2px'}}>{desc}</div>
             </div>
-          </Link>
+          </a>
         )
       })}
     </div>
@@ -123,7 +161,7 @@ function NavItem({ to, label, dropdown, isActive, onClose }) {
   )
 }
 
-/* ── Mobile nav — icons instead of emojis ── */
+/* ── Mobile nav ── */
 const MOB_NAV = [
   { to:'/',             icon:<FaHome size={17}/>,          label:'Home' },
   { icon:<FaLandmark size={17}/>, label:'About Us', to:'/about', sub:[
@@ -159,9 +197,18 @@ const MOB_NAV = [
   { to:'/mandatory-disclosure', icon:<FaClipboardList size={17}/>,label:'Mandatory Disclosure' },
 ]
 
+/* ── MobNavRow — also uses goTo for hash links ── */
 function MobNavRow({ item, isActive, onClose }) {
   var [open, setOpen] = useState(false)
   var hasSub = item.sub && item.sub.length > 0
+  var goTo   = useHashNav()
+
+  function handleSubClick(e, to) {
+    e.preventDefault()
+    onClose()
+    goTo(to)
+  }
+
   return (
     <div>
       <div style={{display:'flex',alignItems:'center',borderRadius:'12px',marginBottom:'3px',overflow:'hidden',background:isActive(item.to)?'rgba(232,118,26,.08)':'transparent',transition:'background .15s'}}>
@@ -184,13 +231,14 @@ function MobNavRow({ item, isActive, onClose }) {
         <div style={{marginLeft:'16px',marginBottom:'4px',borderLeft:'2px solid rgba(232,118,26,.18)',paddingLeft:'12px'}}>
           {item.sub.map(function(s){
             return (
-              <Link key={s.to} to={s.to} onClick={onClose}
+              <a key={s.to} href={s.to}
+                onClick={function(e){ handleSubClick(e, s.to) }}
                 style={{display:'flex',alignItems:'center',gap:'10px',padding:'9px 12px',borderRadius:'10px',marginBottom:'2px',textDecoration:'none',fontFamily:"'Poppins',sans-serif",fontSize:'13.5px',fontWeight:500,color:isActive(s.to)?'#E8761A':'#4A2C00',background:isActive(s.to)?'rgba(232,118,26,.08)':'transparent',transition:'all .15s'}}
                 onMouseEnter={function(e){e.currentTarget.style.background='rgba(232,118,26,.06)';e.currentTarget.style.paddingLeft='16px'}}
                 onMouseLeave={function(e){e.currentTarget.style.background=isActive(s.to)?'rgba(232,118,26,.08)':'transparent';e.currentTarget.style.paddingLeft='12px'}}>
                 <span style={{color:'#E8761A',display:'flex',alignItems:'center'}}>{s.icon}</span>
                 {s.label}
-              </Link>
+              </a>
             )
           })}
         </div>
@@ -221,6 +269,17 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => { setMobile(false) }, [location])
+
+  // ── Scroll to hash after navigation ──
+  useEffect(() => {
+    if (location.hash) {
+      var id = location.hash.replace('#', '')
+      setTimeout(function() {
+        var el = document.getElementById(id)
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }, 300)
+    }
+  }, [location.pathname, location.hash])
 
   useEffect(() => {
     announcementAPI.getAll()
@@ -362,8 +421,6 @@ export default function Navbar() {
               <a href={fbLink} target="_blank" rel="noopener noreferrer" className="mob-soc-btn mob-soc-fb" aria-label="Facebook"><FaFacebook size={16}/></a>
               <a href={ytLink} target="_blank" rel="noopener noreferrer" className="mob-soc-btn mob-soc-yt" aria-label="YouTube"><FaYoutube size={16}/></a>
             </div>
-
-
           </div>
         </div>
       )}
@@ -406,6 +463,14 @@ export default function Navbar() {
         .mob-soc-ig:hover { background:linear-gradient(135deg,#f09433,#dc2743,#bc1888); border-color:transparent; }
         .mob-soc-fb:hover { background:#1877F2; border-color:transparent; }
         .mob-soc-yt:hover { background:#FF0000; border-color:transparent; }
+
+        /* ── Restore chatbot orange color (overrides purple from global CSS) ── */
+        .chat-btn { background:linear-gradient(135deg,#E8761A,#F5B800) !important; animation:chatPulse 2.5s 1.2s ease-in-out infinite !important; }
+        .chat-tip { color:#E8761A !important; }
+        .cp-send  { background:linear-gradient(135deg,#E8761A,#F5B800) !important; }
+        .cp-dot   { background:#E8761A !important; }
+        .cp-status{ color:#E8761A !important; }
+
         @media (max-width:960px) { .spvs-dnav { display:none !important; } .spvs-hamburger { display:flex !important; } }
         @media (max-width:768px) { .tb-desktop { display:none !important; } .tb-mobile { display:flex !important; align-items:center; width:100%; height:40px; overflow:hidden; } }
       `}</style>

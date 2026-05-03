@@ -611,13 +611,11 @@ footer{
 .nd-item:hover .nd-em{background:rgba(232,118,26,.15)}
 
 /* ── CHAT BUTTON ── */
-.chat-btn{background:linear-gradient(135deg,#6C3FC5,#9B59F5)!important}
-.chat-tip{color:#9B59F5!important;background:var(--card)}
-@keyframes chatPulseNew{0%,100%{box-shadow:0 6px 24px rgba(108,63,197,.4),0 0 0 0 rgba(108,63,197,.3)}50%{box-shadow:0 6px 24px rgba(108,63,197,.4),0 0 0 12px rgba(108,63,197,0)}}
-.chat-btn{animation:chatPulseNew 2.5s 1.2s ease-in-out infinite!important}
-.cp-send{background:linear-gradient(135deg,#6C3FC5,#9B59F5)!important}
-.cp-dot{background:#6C3FC5!important}
-.cp-status{color:#6C3FC5!important}
+.chat-btn { background:linear-gradient(135deg,#E8761A,#F5B800) !important; }
+.chat-tip { color:#E8761A !important; background:var(--card); }
+.cp-send  { background:linear-gradient(135deg,#E8761A,#F5B800) !important; }
+.cp-dot   { background:#E8761A !important; }
+.cp-status{ color:#E8761A !important; }
 
 /* ── Hostel dropdown highlight ── */
 .nd-divider{height:1px;background:var(--brd);margin:6px 4px}

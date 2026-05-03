@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import Library         from '../../components/facilities/Library'
 import Labs            from '../../components/facilities/Labs'
 import Transport       from '../../components/facilities/Transport'
@@ -9,16 +9,39 @@ import HostelHighlight from '../../components/facilities/HostelHighlight'
 import { FaHome, FaBook, FaFlask, FaBus, FaFutbol, FaDesktop, FaStar, FaSchool } from 'react-icons/fa'
 
 const TABS = [
-  { id:'hostel',   icon:<FaHome size={14}/>,    label:'Hostel',       short:'Hostel',    highlight:true },
-  { id:'library',  icon:<FaBook size={14}/>,    label:'Library',      short:'Library' },
-  { id:'labs',     icon:<FaFlask size={14}/>,   label:'Laboratories', short:'Labs' },
-  { id:'transport',icon:<FaBus size={14}/>,     label:'Transport',    short:'Transport' },
-  { id:'sports',   icon:<FaFutbol size={14}/>,  label:'Sports',       short:'Sports' },
-  { id:'smart',    icon:<FaDesktop size={14}/>, label:'Smart Classes',short:'Smart' },
+  { id:'hostel',     icon:<FaHome size={14}/>,    label:'Hostel',       short:'Hostel',    highlight:true },
+  { id:'library',    icon:<FaBook size={14}/>,    label:'Library',      short:'Library' },
+  { id:'labs',       icon:<FaFlask size={14}/>,   label:'Laboratories', short:'Labs' },
+  { id:'transport',  icon:<FaBus size={14}/>,     label:'Transport',    short:'Transport' },
+  { id:'sports',     icon:<FaFutbol size={14}/>,  label:'Sports',       short:'Sports' },
+  { id:'smart',      icon:<FaDesktop size={14}/>, label:'Smart Classes',short:'Smart' },
 ]
 
+/* Maps hash → tab id  (navbar uses 'smartclass', tabs use 'smart') */
+const HASH_MAP = {
+  hostel:     'hostel',
+  library:    'library',
+  labs:       'labs',
+  transport:  'transport',
+  sports:     'sports',
+  smart:      'smart',
+  smartclass: 'smart',   /* ← navbar sends #smartclass, map to 'smart' */
+}
+
 export default function FacilitiesPage() {
-  const [active, setActive] = useState('hostel')
+  const location              = useLocation()
+  const [active, setActive]   = useState(() => {
+    /* Set initial tab from hash if present */
+    var hash = window.location.hash.replace('#', '')
+    return HASH_MAP[hash] || 'hostel'
+  })
+
+  /* ── React to hash changes (e.g. browser back/forward or navbar click) ── */
+  useEffect(() => {
+    var hash   = location.hash.replace('#', '')
+    var tabId  = HASH_MAP[hash]
+    if (tabId) setActive(tabId)
+  }, [location.hash])
 
   useEffect(() => {
     const obs = new IntersectionObserver(
