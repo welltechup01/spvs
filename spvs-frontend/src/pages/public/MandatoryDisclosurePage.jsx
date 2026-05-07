@@ -8,7 +8,7 @@ import {
 } from 'react-icons/fa'
 
 var CERT_FILES = {
-  'Fire Certificate 2023':                   { file: 'Fire Certificate 2023.pdf',                      ready: true },
+  'Previous 3 years Fee Srtucture':                   { file: 'Previous 3 years Fee Srtucture.pdf',                      ready: true },
   'New Fire Certificate 2026':               { file: 'Fire Certificate 2026.pdf',                      ready: true },
   'NEW Bullding Safety Certificate 2023':    { file: 'NEW Bullding Safety Certificate 2023.pdf',       ready: true },
   'No Objection Certificate (NOC)':          { file: 'NOC.pdf',                                        ready: true },
