@@ -40,7 +40,7 @@ export default function PrincipalMessage() {
               />
             </div>
             <div className="l-name">Sh. Awadhesh Narayan Agarwal</div>
-            <div className="l-role">Manager</div>
+            <div className="l-role">Director & Manager</div>
             <div className="l-quote">"Education is the most powerful tool to achieve the goal. We move from knowledge to skill, competition to cooperation."</div>
           </div>
 
