@@ -57,8 +57,8 @@ a{text-decoration:none}
 ════════════════════════════════════════ */
 #preloader{position:fixed;inset:0;z-index:99999;background:radial-gradient(ellipse at 40% 40%,#FFF8DC 0%,#FFF3C0 40%,#FFEAD0 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;transition:opacity .8s ease,transform .8s ease;}
 #preloader.hide{opacity:0;transform:scale(1.04);pointer-events:none}
-.pl-logo-ring{position:relative;width:130px;height:130px;animation:logoIn .6s cubic-bezier(.34,1.56,.64,1) both}
-.pl-logo-ring svg{width:130px;height:130px;filter:drop-shadow(0 10px 40px rgba(245,184,0,.6)) drop-shadow(0 0 20px rgba(232,118,26,.3))}
+.pl-logo-ring{position:relative;width:clamp(80px,18vw,130px);height:clamp(80px,18vw,130px);animation:logoIn .6s cubic-bezier(.34,1.56,.64,1) both}
+.pl-logo-ring svg{width:100%;height:100%;filter:drop-shadow(0 10px 40px rgba(245,184,0,.6)) drop-shadow(0 0 20px rgba(232,118,26,.3))}
 .pl-ring-orbit{position:absolute;inset:-16px;border-radius:50%;border:2.5px dashed rgba(232,118,26,.35);animation:orbit 3s linear infinite}
 .pl-ring-orbit2{position:absolute;inset:-28px;border-radius:50%;border:1.5px dashed rgba(245,184,0,.25);animation:orbit 5s linear infinite reverse}
 .pl-orb{position:absolute;width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--or),var(--gd));top:-5px;left:50%;transform:translateX(-50%);box-shadow:0 0 12px var(--or),0 0 24px var(--gd)}
@@ -67,7 +67,6 @@ a{text-decoration:none}
 .pl-tagline{font-family:'Poppins',sans-serif;font-size:12px;letter-spacing:3px;color:var(--txt3);text-transform:uppercase;animation:fadeUp .8s ease .5s both}
 .pl-progress{width:200px;height:3px;background:rgba(232,118,26,.15);border-radius:3px;overflow:hidden;animation:fadeUp .8s ease .6s both}
 .pl-prog-fill{height:100%;background:linear-gradient(90deg,var(--or),var(--gd),var(--or3));border-radius:3px;animation:progfill 2.8s ease forwards;box-shadow:0 0 10px var(--gd)}
-
 /* ════════════════════════════════════════
    WHATSAPP FLOAT
 ════════════════════════════════════════ */
@@ -722,8 +721,8 @@ footer{background:linear-gradient(145deg,#1C0A00 0%,#2E1200 40%,#3D1A00 70%,#1C0
   .pb-title{font-size:24px}
   .breadcrumb{font-size:11px}
   .pl-school-name{font-size:18px}
-  .pl-logo-ring{width:100px;height:100px}
-  .pl-logo-ring svg{width:100px;height:100px}
+ .pl-logo-ring{width:clamp(80px,18vw,130px);height:clamp(80px,18vw,130px)}
+.pl-logo-ring svg{width:100%;height:100%}
 }
 
 /* ════════════════════════════════════════

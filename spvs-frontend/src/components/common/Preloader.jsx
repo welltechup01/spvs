@@ -15,10 +15,13 @@ export default function Preloader() {
 
   return (
     <div id="preloader" className={hide ? 'hide' : ''}>
-      <div className="pl-logo-ring">
+      <div
+        className="pl-logo-ring"
+        style={{ width: 'clamp(80px, 18vw, 130px)', height: 'clamp(80px, 18vw, 130px)' }}
+      >
         <div className="pl-ring-orbit"><div className="pl-orb"></div></div>
         <div className="pl-ring-orbit2"><div className="pl-orb2"></div></div>
-        <SchoolLogo size={130} />
+        <SchoolLogo size="100%" />
       </div>
       <div className="pl-school-name">SANT PATHIK VIDYALAYA</div>
       <div className="pl-tagline">Pashupati Nagar · Bahraich · Est. 1987</div>
