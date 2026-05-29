@@ -50,7 +50,7 @@ export default function Library({ embedded = false }) {
                   A <span style={{color:'var(--or)'}}>Knowledge Hub</span> for Every Learner
                 </h2>
                 <p style={{fontSize:'14px',color:'var(--txt2)',lineHeight:'1.75',marginBottom:'18px'}}>
-                  Our well-stocked library is the intellectual heart of SPVS — encouraging reading habits, independent research and a lifelong love for learning in students from Class I to XII.
+                  Our well-stocked library is the intellectual heart of SPV — encouraging reading habits, independent research and a lifelong love for learning in students from Class I to XII.
                 </p>
                 <div style={{display:'flex',gap:'18px',flexWrap:'wrap'}}>
                   {[['5,000+','Books'],['60+','Seating'],['Daily','Newspapers'],['Digital','Access']].map(([n,l])=>(

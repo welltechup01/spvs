@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import SchoolLogo from './SchoolLogo'
 import useSettings from '../../hooks/useSettings'
 
 export default function Footer() {
@@ -15,7 +14,7 @@ export default function Footer() {
   const phone2    = contact.phone2     || '8318842325'
   const email     = contact.email      || 'spvbrh@gmail.com'
   const address   = school.address     || 'Pashupati Nagar, Bahraich UP 271802'
-  const facebook  = contact.facebook   || 'https://www.facebook.com/61584920274763/'
+  const facebook  = contact.facebook   || 'https://www.facebook.com/share/1HXvF61Gqd/'
   const youtube   = contact.youtube    || 'https://youtube.com/@santpathikvidyalayabahraic9459?si=NccPMOyCjrsklcoc'
   const instagram = contact.instagram  || 'https://www.instagram.com/sant.pathikvidyalaya?igsh=MXRhMGY5ZzA2OGlvZg=='
   const whatsapp  = contact.whatsapp   || phone1
@@ -27,7 +26,20 @@ export default function Footer() {
         {/* ── Brand ── */}
         <div>
           <div className="foot-brand-row">
-            <div className="foot-logo"><SchoolLogo size={54} /></div>
+            {/* ── Logo: same style as navbar — no clipping, full contain, with glow ring ── */}
+            <div
+              className="foot-logo-wrap"
+              onMouseEnter={function(e){ e.currentTarget.style.transform='rotate(8deg) scale(1.06)' }}
+              onMouseLeave={function(e){ e.currentTarget.style.transform='' }}
+            >
+              <img
+                src="/logo/school.PNG"
+                alt="Sant Pathik Vidyalaya Logo"
+                width={62}
+                height={62}
+                style={{ objectFit:'contain', display:'block', width:'100%', height:'100%' }}
+              />
+            </div>
             <div>
               <div className="foot-sn">{name}</div>
               <div className="foot-st">{school.board||'CBSE'} Affiliated · Est. {est}</div>
@@ -64,7 +76,7 @@ export default function Footer() {
             </a>
           </div>
 
-          {/* ── Welltechup credit — logo image + red text ── */}
+          {/* ── Welltechup credit ── */}
           <a href="https://www.welltechup.com" target="_blank" rel="noopener noreferrer" className="wtu-wrap">
             <img
               src="/images/welltechup_logo.jpg"
@@ -168,7 +180,6 @@ export default function Footer() {
           pointer-events:none; user-select:none;
         }
 
-        /* ── Grid ── */
         .foot-grid {
           display:grid;
           grid-template-columns:1.6fr 1fr 1fr 1.2fr;
@@ -176,35 +187,57 @@ export default function Footer() {
           position:relative; z-index:2;
         }
 
+        /* ── FIXED: Logo wrapper — exact white bg match to navbar ── */
         .foot-brand-row { display:flex; align-items:center; gap:14px; margin-bottom:16px; }
-        .foot-logo { flex-shrink:0; }
 
-        /* School name → Playfair Display 700 */
+        .foot-logo-wrap {
+          width:62px;
+          height:62px;
+          flex-shrink:0;
+          border-radius:50%;
+          /* Pure white background — exactly like navbar renders on light header */
+          background:#ffffff;
+          border:2.5px solid rgba(245,184,0,0.5);
+          box-shadow:0 4px 18px rgba(245,184,0,0.3), 0 0 0 3px rgba(232,118,26,0.15);
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          overflow:hidden;
+          position:relative;
+          transition:all .5s cubic-bezier(.34,1.56,.64,1);
+          padding:3px;
+        }
+
+        .foot-logo-wrap img {
+          width:100%;
+          height:100%;
+          object-fit:contain;
+          display:block;
+          /* No filter — let true colors show on white bg */
+          filter:none;
+        }
+
         .foot-sn {
           font-family:'Playfair Display',serif;
           font-size:clamp(14px,1.4vw,17px); font-weight:700;
           color:#fff; line-height:1.3; margin-bottom:3px;
         }
-        /* Board tag → Poppins 400 */
         .foot-st {
           font-family:'Poppins',sans-serif;
           font-size:10px; font-weight:400;
           color:rgba(255,255,255,.75); letter-spacing:.3px;
         }
-        /* Body text → Poppins 400 */
         .foot-desc {
           font-family:'Poppins',sans-serif;
           font-size:13.5px; font-weight:400;
           color:rgba(255,255,255,.85); line-height:1.78; margin:0 0 14px;
         }
-        /* Tagline → Playfair Display 400 italic */
         .foot-motto {
           font-family:'Playfair Display',serif;
           font-size:13.5px; font-style:italic; font-weight:400;
           color:#FFCF40; margin-bottom:18px; line-height:1.5;
         }
 
-        /* Social → Poppins 700 */
         .foot-soc { display:flex; gap:7px; margin-top:18px; flex-wrap:wrap; }
         .fsoc {
           width:38px; height:38px; border-radius:10px;
@@ -218,7 +251,6 @@ export default function Footer() {
         .fsoc-yt:hover { background:#FF0000; border-color:transparent; }
         .fsoc-wa:hover { background:#25D366; border-color:transparent; }
 
-        /* ── Welltechup credit ── */
         .wtu-wrap {
           margin-top:20px; display:flex; align-items:center; gap:10px;
           padding:10px 14px; border-radius:12px;
@@ -226,13 +258,11 @@ export default function Footer() {
           text-decoration:none; transition:all .25s; width:fit-content;
         }
         .wtu-wrap:hover { background:rgba(255,255,255,.12); transform:translateY(-2px); }
-        /* Logo image */
         .wtu-logo {
           width:32px; height:32px; border-radius:8px;
           object-fit:cover; flex-shrink:0;
           box-shadow:0 4px 12px rgba(0,0,0,.3);
         }
-        /* Fallback W — hidden by default, shown if image errors */
         .wtu-fallback {
           display:none; width:32px; height:32px; border-radius:8px;
           background:linear-gradient(135deg,#6C3FC5,#9B59F5);
@@ -240,14 +270,12 @@ export default function Footer() {
           font-size:14px; font-weight:900; color:#fff; flex-shrink:0;
           box-shadow:0 4px 12px rgba(108,63,197,.4);
         }
-        /* "Designed & Developed by" → Poppins 500 WHITE */
         .wtu-label {
           font-family:'Poppins',sans-serif;
           font-size:10px; font-weight:500;
           color:rgba(255,255,255,.85);
           letter-spacing:1px; text-transform:uppercase; margin-bottom:2px;
         }
-        /* "WELLTECHUP" → Poppins 700 RED UPPERCASE */
         .wtu-name {
           font-family:'Poppins',sans-serif;
           font-size:15px; font-weight:700;
@@ -256,7 +284,6 @@ export default function Footer() {
           text-transform:uppercase;
         }
 
-        /* ── Column headings → Poppins 600 ── */
         .foot-col-h {
           font-family:'Poppins',sans-serif;
           font-size:11px; font-weight:700; color:#FFBB7A;
@@ -265,7 +292,6 @@ export default function Footer() {
         }
         .foot-col-h::before { content:''; width:12px; height:2px; background:#FFBB7A; border-radius:2px; }
 
-        /* ── Nav links → Poppins 400 ── */
         .foot-ul { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:9px; }
         .foot-ul li a, .foot-ul li span {
           font-family:'Poppins',sans-serif; font-size:13.5px; font-weight:400;
@@ -276,7 +302,6 @@ export default function Footer() {
         .foot-ul li a:hover { color:#FF9A3C; padding-left:5px; }
         .foot-ul li a:hover::before { color:#FF9A3C; }
 
-        /* ── Buttons → Poppins 600 UPPERCASE ── */
         .foot-acts { display:flex; gap:10px; flex-wrap:wrap; }
         .fa {
           padding:10px 18px; border-radius:10px;
@@ -289,7 +314,6 @@ export default function Footer() {
         .fa2 { background:rgba(255,255,255,.08); color:rgba(255,255,255,.8); border:1px solid rgba(255,255,255,.15); }
         .fa2:hover { background:rgba(255,255,255,.14); color:#fff; transform:translateY(-2px); }
 
-        /* ── Bottom bar → Poppins 400 ── */
         .foot-bot {
           display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
           gap:8px; padding:12px 28px; border-top:1px solid rgba(255,255,255,.08);
@@ -302,7 +326,6 @@ export default function Footer() {
         .foot-admin-lnk { color:rgba(255,255,255,.3) !important; }
         .foot-admin-lnk:hover { color:rgba(255,255,255,.6) !important; }
 
-        /* ── Mobile bottom links ── */
         .foot-mob-wrap {
           display:none; gap:10px; padding:14px 18px;
           border-top:1px solid rgba(255,255,255,.08);
@@ -317,21 +340,16 @@ export default function Footer() {
         .foot-mob-admin { background:rgba(255,255,255,.04) !important; border:1px solid rgba(255,255,255,.08) !important; color:rgba(255,255,255,.28) !important; }
         .foot-mob-admin:hover { color:rgba(255,255,255,.55) !important; }
 
-        /* ══ LAPTOP ≤ 1024px ══ */
         @media (max-width:1024px) {
           .foot-grid { grid-template-columns:1.4fr 1fr 1fr 1.1fr; gap:20px; padding:30px 24px 22px; }
           .foot-bot  { padding:12px 24px; }
         }
-
-        /* ══ TABLET ≤ 768px ══ */
         @media (max-width:768px) {
           .foot-grid { grid-template-columns:1fr 1fr; gap:20px; padding:28px 20px 22px; }
           .foot-bot  { padding:12px 20px; }
           .foot-bl-desk  { display:none !important; }
           .foot-mob-wrap { display:flex !important; }
         }
-
-        /* ══ PHONE ≤ 540px ══ */
         @media (max-width:540px) {
           .foot-grid { grid-template-columns:1fr; gap:22px; padding:24px 16px 18px; }
           .foot-bot  { flex-direction:column; align-items:stretch; padding:10px 16px 14px; gap:6px; }
@@ -340,13 +358,13 @@ export default function Footer() {
           .fa        { text-align:center; }
           .foot-soc  { justify-content:flex-start; }
           .wtu-wrap  { width:100%; }
+          .foot-logo-wrap { width:54px; height:54px; background:#ffffff; }
         }
-
-        /* ══ SMALL PHONE ≤ 380px ══ */
         @media (max-width:380px) {
           .foot-grid { padding:20px 12px 16px; gap:18px; }
           .foot-sn   { font-size:14px; }
           .foot-desc { font-size:12.5px; }
+          .foot-logo-wrap { width:48px; height:48px; background:#ffffff; }
         }
       `}</style>
     </footer>

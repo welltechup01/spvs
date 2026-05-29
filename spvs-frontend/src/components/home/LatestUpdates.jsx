@@ -5,9 +5,9 @@ import { FaTrophy, FaMedal, FaTv, FaFlask, FaRunning, FaClipboardList, FaGraduat
 
 var FALLBACK = [
   { icon:<FaClipboardList size={22} color="#E8761A"/>, tag:'Admissions',    date:'Mar 2025', title:'Admissions Open 2025-26',       desc:'Enrolling students for Play Group to Class XII. Limited seats available. Apply early to secure admission.' },
-  { icon:<FaMedal size={22} color="#E8761A"/>,         tag:'Achievement',   date:'Jan 2025', title:'District Sports Champions',      desc:'SPVS wins Gold in Kabaddi, Chess, Volleyball, Shot-put, 100m, 200m, 400m, 800m and Long Jump.' },
+  { icon:<FaMedal size={22} color="#E8761A"/>,         tag:'Achievement',   date:'Jan 2025', title:'District Sports Champions',      desc:'SPV wins Gold in Kabaddi, Chess, Volleyball, Shot-put, 100m, 200m, 400m, 800m and Long Jump.' },
   { icon:<FaTv size={22} color="#E8761A"/>,            tag:'National',      date:'Dec 2024', title:'KBC Winner — ₹3,20,000',        desc:'Aarav Raghuvansh of Class V wins ₹3,20,000 on Kaun Banega Crorepati. School felicitated him with cheque.' },
-  { icon:<FaTrophy size={22} color="#E8761A"/>,        tag:'Results',       date:'Jun 2024', title:'100% Board Results Again',       desc:'SPVS achieves 100% pass rate in CBSE Class X and Class XII board examinations for the academic year.' },
+  { icon:<FaTrophy size={22} color="#E8761A"/>,        tag:'Results',       date:'Jun 2024', title:'100% Board Results Again',       desc:'SPV achieves 100% pass rate in CBSE Class X and Class XII board examinations for the academic year.' },
   { icon:<FaFlask size={22} color="#E8761A"/>,         tag:'Infrastructure', date:'Apr 2024', title:'New STEM Lab Inaugurated',      desc:'State-of-the-art STEM & Junior Tinkering Lab opened for students to explore robotics and innovation.' },
   { icon:<FaRunning size={22} color="#E8761A"/>,       tag:'Sports',        date:'Mar 2024', title:'CBSE Cluster Level — Runner Up', desc:'School reaches Runner-Up position in Kabaddi (U-17) at CBSE cluster level games and sports event.' },
 ]

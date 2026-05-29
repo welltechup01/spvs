@@ -29,32 +29,50 @@ export default function SchoolIntro() {
       <div className="s-cont">
         <div className="about-grid">
           <div className="about-vis rv">
-            <div className="about-main about-main-img-wrap" style={{overflow:'hidden',padding:0,borderRadius:'24px',border:'3px solid rgba(232,118,26,.25)',boxShadow:'0 20px 60px rgba(232,118,26,.18), 0 0 0 6px rgba(232,118,26,.06)'}}>
-              <img
-                src="/images/about_school.jpg"
-                alt={name}
-                className="about-school-img"
-                style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'center',display:'block'}}
-                onError={function(e){
-                  e.target.style.display='none'
-                  e.target.nextSibling.style.display='flex'
-                }}
-              />
-              <div style={{display:'none',width:'100%',height:'100%',flexDirection:'column',alignItems:'center',justifyContent:'center',gap:'12px',background:'linear-gradient(135deg,#FFF8DC,#FFE0A0)',position:'absolute',inset:0}}>
-                <FaSchool size={72} color="#E8761A"/>
-                <div style={{fontFamily:"'Playfair Display',serif",fontSize:'20px',fontWeight:'700',color:'var(--dark2)',textAlign:'center',padding:'0 16px'}}>{area} Campus</div>
-                <div style={{fontSize:'13px',color:'var(--txt2)',textAlign:'center',padding:'0 20px'}}>{classrooms} Classrooms · {labs} Labs · Sports Stadium</div>
+
+            {/*
+              KEY FIX: a dedicated hard-clip shell sits OUTSIDE .about-main
+              and masks every child — image, overlay, text — to the same
+              rounded rectangle. Nothing can paint outside it.
+            */}
+            <div className="spv-clip-shell">
+
+              {/* .about-main keeps its original class for height / shadow */}
+              <div className="about-main spv-img-inner">
+                <img
+                  src="/images/about_school.png"
+                  alt={name}
+                  className="about-school-img"
+                  onError={function(e){
+                    e.target.style.display = 'none'
+                    e.target.nextSibling.style.display = 'flex'
+                  }}
+                />
+                {/* Fallback shown when image fails */}
+                <div className="about-fallback">
+                  <FaSchool size={72} color="#E8761A"/>
+                  <div style={{fontFamily:"'Playfair Display',serif",fontSize:'20px',fontWeight:'700',color:'var(--dark2)',textAlign:'center',padding:'0 16px'}}>{area} Campus</div>
+                  <div style={{fontSize:'13px',color:'var(--txt2)',textAlign:'center',padding:'0 20px'}}>{classrooms} Classrooms · {labs} Labs · Sports Stadium</div>
+                </div>
               </div>
-            </div>
+
+              {/* Gradient overlay — now INSIDE the clip shell */}
+              <div className="about-main-ov"></div>
+
+              {/* Bottom text — now INSIDE the clip shell */}
+              <div className="about-main-txt">
+                <div className="about-motto">"Education with Values"</div>
+                <div className="about-motto-s">{name}, Est. {est}</div>
+              </div>
+
+            </div>{/* /spv-clip-shell */}
+
+            {/* Float badge stays OUTSIDE (it overlaps the frame deliberately) */}
             <div className="about-float">
               <div className="af-n">{years}</div>
               <div className="af-l">Years of<br/>Excellence</div>
             </div>
-            <div className="about-main-ov"></div>
-            <div className="about-main-txt">
-              <div className="about-motto">"Education with Values"</div>
-              <div className="about-motto-s">{name}, Est. {est}</div>
-            </div>
+
           </div>
 
           <div>
@@ -62,7 +80,7 @@ export default function SchoolIntro() {
             <h2 className="sec-title rv">37+ Years of Quality Education <span className="hl">in Bahraich</span></h2>
             <div className="s-bar rv"></div>
             <p className="s-desc rv">
-              Founded in {est}, {name} (SPVS) is a {board} Senior Secondary school located in Pashupati Nagar, Bahraich. For more than three decades, the school has focused on strong academics along with moral values. Guided by the motto "Work is Worship," SPVS provides education from Class 1 to Class 12 with discipline and dedication.
+              Founded in {est}, {name} (SPV) is a {board} Senior Secondary school located in Pashupati Nagar, Bahraich. For more than three decades, the school has focused on strong academics along with moral values. Guided by the motto "Work is Worship," SPV provides education from Class 1 to Class 12 with discipline and dedication.
             </p>
             <div className="about-pts">
               {POINTS.map(function(p,i) {
@@ -82,10 +100,116 @@ export default function SchoolIntro() {
           </div>
         </div>
       </div>
+
       <style>{`
-        .about-main-img-wrap { border-radius: 24px !important; overflow: hidden !important; }
-        .about-school-img { transition: transform .5s cubic-bezier(.25,.46,.45,.94) !important; border-radius: 0 !important; }
-        .about-main-img-wrap:hover .about-school-img { transform: scale(1.06) !important; }
+        /* ══════════════════════════════════════
+           HARD CLIP SHELL — the single source
+           of truth for the rounded rectangle.
+           Every child is masked inside this box.
+        ══════════════════════════════════════ */
+        .spv-clip-shell {
+          position: relative;
+          width: 100%;
+          height: 490px;               /* matches original .about-main height */
+          border-radius: 32px;
+          overflow: hidden;            /* primary clip */
+
+          /* Belt-and-suspenders: GPU compositing layer forces the
+             browser to honour overflow:hidden on ALL four corners,
+             even for mosaic/grid children that try to paint outside */
+          transform: translateZ(0);
+          -webkit-transform: translateZ(0);
+          will-change: transform;
+
+          /* SVG mask — the nuclear option that works in every browser */
+          -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' rx='32' ry='32' fill='white'/%3E%3C/svg%3E");
+                  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' rx='32' ry='32' fill='white'/%3E%3C/svg%3E");
+          -webkit-mask-size: 100% 100%;
+                  mask-size: 100% 100%;
+
+          /* Visual frame */
+          border: 3px solid rgba(232,118,26,.25);
+          box-shadow: 0 20px 60px rgba(232,118,26,.18),
+                      0 0 0 6px rgba(232,118,26,.06);
+        }
+
+        /* ── Strip .about-main of its own radius/overflow
+           (the shell now handles that) ── */
+        .about-main.spv-img-inner {
+          border-radius: 0 !important;
+          overflow: hidden !important;
+          border: none !important;
+          box-shadow: none !important;
+          height: 100% !important;
+          width: 100% !important;
+          position: absolute !important;
+          inset: 0 !important;
+        }
+
+        /* ── Image: smooth continuous zoom in → out ── */
+        .about-school-img {
+          width: 100% !important;
+          height: 100% !important;
+          object-fit: cover !important;
+          object-position: center !important;
+          display: block !important;
+          border-radius: 0 !important;
+          animation: spv-zoom 8s ease-in-out infinite !important;
+          will-change: transform !important;
+          transform-origin: center center !important;
+        }
+
+        /* Pause zoom on hover so users can look at the image */
+        .spv-clip-shell:hover .about-school-img {
+          animation-play-state: paused !important;
+        }
+
+        @keyframes spv-zoom {
+          0%   { transform: scale(1);    }
+          50%  { transform: scale(1.10); }
+          100% { transform: scale(1);    }
+        }
+
+        /* ── Overlay and text are positioned inside the shell ── */
+        .spv-clip-shell .about-main-ov {
+          position: absolute !important;
+          inset: 0 !important;
+          background: linear-gradient(0deg, rgba(28,10,0,.7) 0%, transparent 55%) !important;
+          z-index: 2 !important;
+          border-radius: 0 !important;
+        }
+
+        .spv-clip-shell .about-main-txt {
+          position: absolute !important;
+          bottom: 26px !important;
+          left: 26px !important;
+          right: 26px !important;
+          z-index: 3 !important;
+        }
+
+        /* ── Fallback ── */
+        .about-fallback {
+          display: none;
+          width: 100%;
+          height: 100%;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 12px;
+          background: linear-gradient(135deg, #FFF8DC, #FFE0A0);
+          position: absolute;
+          inset: 0;
+        }
+
+        /* ── Responsive height adjustment ── */
+        @media (max-width: 768px) {
+          .spv-clip-shell { height: 280px; border-radius: 22px; }
+          -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' rx='22' ry='22' fill='white'/%3E%3C/svg%3E");
+                  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' rx='22' ry='22' fill='white'/%3E%3C/svg%3E");
+        }
+        @media (max-width: 480px) {
+          .spv-clip-shell { height: 240px; border-radius: 18px; }
+        }
       `}</style>
     </section>
   )

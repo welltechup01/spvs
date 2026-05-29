@@ -204,7 +204,7 @@ export default function GalleryPage() {
         <section style={{background:'linear-gradient(135deg,#FFF3CC,#FFE8A0,#FFD8A0)',padding:'60px 24px',textAlign:'center',borderTop:'1.5px solid rgba(232,118,26,.1)'}}>
           <div style={{maxWidth:'520px',margin:'0 auto'}}>
             <div style={{fontFamily:"'Playfair Display',serif",fontSize:'clamp(20px,4vw,27px)',fontWeight:'700',color:'#1C0A00',marginBottom:'10px'}}>Want to see more?</div>
-            <p style={{fontSize:'14.5px',color:'rgba(60,25,0,.6)',lineHeight:'1.75',marginBottom:'26px'}}>Visit our campus and experience the SPVS environment in person. Admissions open for 2026-27.</p>
+            <p style={{fontSize:'14.5px',color:'rgba(60,25,0,.6)',lineHeight:'1.75',marginBottom:'26px'}}>Visit our campus and experience the SPV environment in person. Admissions open for 2026-27.</p>
             <a href="tel:+919198783830" className="gp-cta-btn">📞 Call Us — +91 91987 83830</a>
           </div>
         </section>

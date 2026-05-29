@@ -49,7 +49,7 @@ export default function SmartClasses({ embedded = false }) {
                   Learning in the <span style={{color:'var(--gd2)'}}>21st Century</span>
                 </div>
                 <p style={{fontSize:'14px',color:'rgba(255,255,255,.5)',lineHeight:'1.75',marginBottom:'0',maxWidth:'500px'}}>
-                  SPVS has integrated smart classroom technology across senior classes to make lessons more engaging, interactive and effective. Our teachers are fully trained to deliver digital-first lessons.
+                  SPV has integrated smart classroom technology across senior classes to make lessons more engaging, interactive and effective. Our teachers are fully trained to deliver digital-first lessons.
                 </p>
               </div>
               <div className="sc-stats" style={{display:'flex',flexDirection:'column',gap:'8px',flexShrink:0}}>

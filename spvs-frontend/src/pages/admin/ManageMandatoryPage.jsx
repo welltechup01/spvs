@@ -7,7 +7,7 @@ import {
 
 var INIT_DATA = {
   schoolInfo: [
-    ['Name of School','Sant Pathik Vidyalaya'],['Affiliation No.','2130176'],['School No.','70178'],['UDISE Code','09500707504'],['Year of Establishment','1987'],['Principal Name','Mrs. Pooja Agarwal'],['Principal Qualification','M.A. B.Ed'],['Email','spvbrh@gmail.com'],['Contact No.','+91 9198783830'],['Address','Pashupati Nagar, Bahraich, UP 271802'],['Area of School','10 Acres'],['Area of Playground','5 Acres'],['No. of Students','1410'],['No. of Teachers','73'],['No. of Non-Teaching Staff','35'],
+    ['Name of School','Sant Pathik Vidyalaya'],['Affiliation No.','2130176'],['School No.','70178'],['UDISE Code','09500707504'],['Year of Establishment','1987'],['Principal Name','Mrs. Puja Agarwal'],['Principal Qualification','M.A. B.Ed'],['Email','spvbrh@gmail.com'],['Contact No.','+91 9198783830'],['Address','Pashupati Nagar, Bahraich, UP 271802'],['Area of School','10 Acres'],['Area of Playground','5 Acres'],['No. of Students','1410'],['No. of Teachers','73'],['No. of Non-Teaching Staff','35'],
   ],
   infrastructure: [
     ['No. of Classrooms','73'],['No. of Labs','8'],['No. of Computer Lab Systems','60'],['No. of Library Books','5000+'],['No. of School Buses','22'],['Toilet Blocks (Boys)','10'],['Toilet Blocks (Girls)','12'],['Drinking Water','Yes — RO Purified'],['Fire Extinguishers','Yes — All Floors'],['CCTV Cameras','Yes — 40+ cameras'],['Ramp for Disabled','Yes — All Buildings'],
@@ -16,7 +16,7 @@ var INIT_DATA = {
     ['Board','CBSE — Central Board of Secondary Education'],['Affiliation Valid Till','31 March 2029'],['Classes Offered','Play Group to Class XII'],['Streams (XI-XII)','Science, Commerce, Humanities'],['Medium of Instruction','Hindi & English'],['Academic Session','April to March'],['Result (Class X 2024-25)','100% — All students passed'],['Result (Class XII 2024-25)','100% — All students passed'],['Fee Structure','As per CBSE norms. Available at school office.'],
   ],
   staff: [
-    ['Total Teaching Staff','64 (14 PGT + 20 TGT + 30 PRT)'],['Principal','Mrs. Pooja Agarwal — M.A., B.Ed'],['Vice Principal','Mr. Bhikha Ram Tripathi — M.Sc., B.Ed'],['No. of Administrative Staff','8'],['No. of Non-Teaching Staff','12'],['Teacher–Student Ratio','1 : 22 (Approx.)'],['Details of Special Educator','Available at School Office'],['Details of Counsellor / Wellness Teacher','Available at School Office'],
+    ['Total Teaching Staff','64 (14 PGT + 20 TGT + 30 PRT)'],['Principal','Mrs. Puja Agarwal — M.A., B.Ed'],['Vice Principal','Mr. Bhikha Ram Tripathi — M.Sc., B.Ed'],['No. of Administrative Staff','8'],['No. of Non-Teaching Staff','12'],['Teacher–Student Ratio','1 : 22 (Approx.)'],['Details of Special Educator','Available at School Office'],['Details of Counsellor / Wellness Teacher','Available at School Office'],
   ],
   transport: [
     ['Own Buses','22 Buses covering all major routes'],['Buses Hired on Contract','None'],['Details of Transport Charges','As per route — available at school office'],['GPS Tracking','Available in all school buses'],

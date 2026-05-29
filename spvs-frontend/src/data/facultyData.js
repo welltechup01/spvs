@@ -2,7 +2,7 @@
 // and AcademicsPage (Teachers Qualification tab)
 
 export var FACULTY_PGT = [
-  { name:'Mrs. Pooja Agarwal',      designation:'Principal',    subject:'Biology',           qualification:'M.A. B.Ed',   experience:'22+ yrs', phone:'8318842325' },
+  { name:'Mrs. Puja Agarwal',      designation:'Principal',    subject:'Biology',           qualification:'M.A. B.Ed',   experience:'22+ yrs', phone:'8318842325' },
   { name:'Mr. B.R. Tripathi',       designation:'Vice Principal', subject:'Mathematics',     qualification:'M.Sc B.Ed',   experience:'20+ yrs', phone:'8318600231' },
   { name:'Mr. K.K. Srivastava',     designation:'P.G.T',        subject:'Mathematics',       qualification:'M.Sc LT',     experience:'15+ yrs' },
   { name:'Mr. Mohan Rai',           designation:'P.G.T',        subject:'Physical Education', qualification:'M.P.Ed',     experience:'14+ yrs' },

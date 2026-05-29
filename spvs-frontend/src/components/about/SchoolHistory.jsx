@@ -8,7 +8,7 @@ var MILESTONES = [
   { year:'2010', title:'Hostel Facility',         icon:<FaHome size={20} color="#fff"/>,         desc:'Residential hostel launched on the 10-acre campus, enabling students from distant areas to access quality education.' },
   { year:'2015', title:'Smart Infrastructure',    icon:<FaLaptop size={20} color="#fff"/>,       desc:'School upgraded with smart classrooms, digital projectors, Wi-Fi campus, 8 specialized laboratories and expanded library.' },
   { year:'2020', title:'1000+ Students',          icon:<FaUsers size={20} color="#fff"/>,        desc:'School crossed the 1000 enrolled students milestone, reflecting the growing trust of families across Bahraich.' },
-  { year:'2026', title:'1410 Students & Growing', icon:<FaRocket size={20} color="#fff"/>,       desc:'Today SPVS stands proud with 1410 students, 64+ expert faculty, 22 school buses and a legacy of 100% board results.' },
+  { year:'2026', title:'1410 Students & Growing', icon:<FaRocket size={20} color="#fff"/>,       desc:'Today SPV stands proud with 1410 students, 64+ expert faculty, 22 school buses and a legacy of 100% board results.' },
 ]
 
 export default function SchoolHistory() {

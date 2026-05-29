@@ -9,7 +9,7 @@ function normalise(item) {
     image:    item.image || '',
     title:    item.title,
     category: item.category || 'General',
-    author:   item.author || 'SPVS Admin',
+    author:   item.author || 'SPV Admin',
     date:     item.createdAt ? new Date(item.createdAt).toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'}) : '',
     featured: item.featured || false,
     excerpt:  item.excerpt || item.content?.slice(0,160) || '',

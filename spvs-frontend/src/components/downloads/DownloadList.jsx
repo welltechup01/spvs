@@ -122,7 +122,7 @@ export default function DownloadList() {
           <strong style={{color:'var(--or)'}}>{totalCount} documents</strong> available across <strong style={{color:'var(--dark)'}}>{DOWNLOADS.length} categories</strong>
         </div>
         <div style={{fontSize:'12px', color:'var(--txt3)'}}>
-          📌 All documents are in PDF format &nbsp;·&nbsp; 🔒 Official SPVS documents
+          📌 All documents are in PDF format &nbsp;·&nbsp; 🔒 Official SPV documents
         </div>
       </div>
 

@@ -243,7 +243,7 @@ export default function ManageTestimonialsPage() {
                 <div><label style={s.label}>Rating</label><select name="rating" value={current.rating} onChange={handleChange} style={s.inp} onFocus={inf} onBlur={inb}>{RATINGS.map(function(r){return <option key={r} value={r}>{r} Star{r!==1?'s':''}</option>})}</select></div>
               </div>
               <div><label style={s.label}>Role / Relation</label><input name="role" value={current.role} onChange={handleChange} placeholder="e.g. Parent of Class IX student" style={s.inp} onFocus={inf} onBlur={inb} /></div>
-              <div><label style={s.label}>Testimonial Text *</label><textarea name="message" value={current.message} onChange={handleChange} rows={4} placeholder="What they said about SPVS..." style={{...s.inp,resize:'vertical'}} onFocus={inf} onBlur={inb} /></div>
+              <div><label style={s.label}>Testimonial Text *</label><textarea name="message" value={current.message} onChange={handleChange} rows={4} placeholder="What they said about SPV..." style={{...s.inp,resize:'vertical'}} onFocus={inf} onBlur={inb} /></div>
               <div style={{display:'flex',alignItems:'center',gap:'10px',padding:'12px 14px',borderRadius:'10px',background:'#FFF6EA',border:'1.5px solid rgba(232,118,26,.15)'}}>
                 <input type="checkbox" name="approved" id="appr" checked={current.approved} onChange={handleChange} style={{width:'16px',height:'16px',accentColor:'#E8761A'}} />
                 <label htmlFor="appr" style={{fontSize:'13px',fontWeight:'600',color:'#7A4010',cursor:'pointer',display:'inline-flex',alignItems:'center',gap:'6px'}}><FaCheckCircle size={13} color="#22a35a"/> Approved — show on website</label>

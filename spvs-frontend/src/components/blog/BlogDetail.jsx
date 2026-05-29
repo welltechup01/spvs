@@ -84,7 +84,7 @@ export default function BlogDetail() {
           <h1 className="pb-title" style={{maxWidth:'800px',margin:'0 auto 12px'}}>{post.title}</h1>
           <div style={{display:'flex',gap:'12px',justifyContent:'center',flexWrap:'wrap',fontSize:'13px',color:'rgba(255,255,255,.7)',marginBottom:'14px'}}>
             <span style={{display:'inline-flex',alignItems:'center',gap:'5px'}}><FaCalendarAlt size={11}/> {formatDate(post.createdAt)}</span>
-            <span style={{display:'inline-flex',alignItems:'center',gap:'5px'}}><FaEdit size={11}/> {post.author || 'SPVS Admin'}</span>
+            <span style={{display:'inline-flex',alignItems:'center',gap:'5px'}}><FaEdit size={11}/> {post.author || 'SPV Admin'}</span>
             <span style={{background:'rgba(255,255,255,.15)',padding:'2px 12px',borderRadius:'50px',color:'#fff',fontWeight:'700'}}>{post.category}</span>
           </div>
           <div className="breadcrumb">
@@ -123,7 +123,7 @@ export default function BlogDetail() {
                 <div style={{marginTop:'32px',paddingTop:'20px',borderTop:'1.5px solid var(--brd)',display:'flex',gap:'10px',flexWrap:'wrap',alignItems:'center'}}>
                   <span style={{display:'inline-flex',alignItems:'center',gap:'6px',background:clr+'18',color:clr,fontSize:'12px',fontWeight:'800',padding:'5px 14px',borderRadius:'50px',border:'1.5px solid '+clr+'30'}}>{icon} {post.category}</span>
                   <span style={{fontSize:'12px',color:'var(--txt3)',display:'inline-flex',alignItems:'center',gap:'4px'}}><FaCalendarAlt size={10}/> {formatDate(post.createdAt)}</span>
-                  <span style={{fontSize:'12px',color:'var(--txt3)',display:'inline-flex',alignItems:'center',gap:'4px'}}><FaEdit size={10}/> {post.author || 'SPVS Admin'}</span>
+                  <span style={{fontSize:'12px',color:'var(--txt3)',display:'inline-flex',alignItems:'center',gap:'4px'}}><FaEdit size={10}/> {post.author || 'SPV Admin'}</span>
                 </div>
               </div>
 

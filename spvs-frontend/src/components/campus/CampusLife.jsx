@@ -72,7 +72,7 @@ export default function CampusLife() {
       <div style={{marginBottom:'56px'}}>
         <div style={{textAlign:'center',marginBottom:'32px'}}>
           <div style={{display:'inline-block',fontSize:'11px',fontWeight:'800',letterSpacing:'2px',textTransform:'uppercase',color:'var(--or)',background:'rgba(232,118,26,.1)',padding:'6px 16px',borderRadius:'50px',marginBottom:'12px'}}>Daily Schedule</div>
-          <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:'30px',fontWeight:'700',color:'var(--dark)',margin:0}}>A Day in <span style={{color:'var(--or)',fontStyle:'italic'}}>SPVS</span></h2>
+          <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:'30px',fontWeight:'700',color:'var(--dark)',margin:0}}>A Day in <span style={{color:'var(--or)',fontStyle:'italic'}}>SPV</span></h2>
         </div>
         <div style={{maxWidth:'700px',margin:'0 auto',position:'relative'}}>
           <div style={{position:'absolute',left:'68px',top:'24px',bottom:'24px',width:'2px',background:'linear-gradient(180deg,var(--or),var(--gd))',borderRadius:'2px'}} />

@@ -89,7 +89,7 @@ export default function AboutPage() {
         <div style={{position:'absolute',inset:0,pointerEvents:'none',backgroundImage:'radial-gradient(circle at 20% 50%, rgba(232,118,26,.12) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(245,184,0,.08) 0%, transparent 50%)'}} />
         <div style={{position:'relative',zIndex:2,maxWidth:'800px',margin:'0 auto',width:'100%'}}>
           <div className="chip" style={{background:'rgba(245,184,0,.1)',borderColor:'rgba(245,184,0,.25)',color:'#F5B800',margin:'0 auto 20px'}}>
-            <span style={{width:'6px',height:'6px',borderRadius:'50%',background:'#F5B800',display:'inline-block',animation:'blink 2s infinite',flexShrink:0}} />About SPVS
+            <span style={{width:'6px',height:'6px',borderRadius:'50%',background:'#F5B800',display:'inline-block',animation:'blink 2s infinite',flexShrink:0}} />About SPV
           </div>
           <h1 style={{fontFamily:"'Playfair Display',serif",fontSize:'clamp(28px,5vw,60px)',fontWeight:'700',color:'#FFFDF8',margin:'0 0 16px',lineHeight:'1.15'}}>
             Shaping Minds,<br/>
@@ -178,7 +178,7 @@ export default function AboutPage() {
             <span style={{background:'linear-gradient(90deg,#E8761A,#F5B800)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text'}}>Best Start in Life</span>
           </h2>
           <p style={{fontSize:'16px',color:'rgba(255,220,150,.65)',lineHeight:'1.8',textAlign:'center',maxWidth:'560px',margin:'0 auto 32px'}}>
-            Join the SPVS family — where values meet excellence, and every child is empowered to become their best self.
+            Join the SPV family — where values meet excellence, and every child is empowered to become their best self.
           </p>
           <div style={{display:'flex',gap:'10px',justifyContent:'center',flexWrap:'wrap',marginBottom:'32px'}}>
             {PILLS.map(function(pill){

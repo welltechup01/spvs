@@ -14,6 +14,34 @@ import {
   FaBell, FaCheckCircle, FaBookOpen, FaSchool as FaSchool2,
 } from 'react-icons/fa'
 
+function SchoolLogo({ size = 58 }) {
+  return (
+    <svg viewBox="0 0 120 120" width={size} height={size} xmlns="http://www.w3.org/2000/svg">
+      <circle cx="60" cy="60" r="58" fill="#E8761A"/>
+      <circle cx="60" cy="60" r="50" fill="#F5B800"/>
+      <circle cx="60" cy="60" r="46" fill="#FFD94A"/>
+      <g fill="#1a6b3a">
+        <polygon points="60,6 64,20 56,20"/>
+        <polygon points="60,100 64,114 56,114"/>
+        <polygon points="6,60 20,64 20,56"/>
+        <polygon points="100,60 114,64 114,56"/>
+        <polygon points="15,15 27,27 20,29"/>
+        <polygon points="105,15 93,27 100,29"/>
+        <polygon points="15,105 27,93 20,91"/>
+        <polygon points="105,105 93,93 100,91"/>
+      </g>
+      <circle cx="60" cy="60" r="30" fill="white"/>
+      <text x="60" y="76" textAnchor="middle" fontSize="38" fill="#DC3522" fontFamily="serif" fontWeight="bold">ॐ</text>
+      <path id="tc-nav" d="M60,60 m-46,0 a46,46 0 1,1 92,0" fill="none"/>
+      <text fontSize="7" fill="white" fontWeight="bold" fontFamily="sans-serif" letterSpacing=".7">
+        <textPath href="#tc-nav">SANT PATHIK VIDYALAYA  PASHUPATI NAGAR</textPath>
+      </text>
+      <rect x="8" y="95" width="104" height="16" rx="5" fill="#4A2C8A"/>
+      <text x="60" y="106.5" textAnchor="middle" fontSize="6.8" fill="white" fontWeight="bold" fontFamily="sans-serif" letterSpacing="1">WORK IS WORSHIP</text>
+    </svg>
+  )
+}
+
 const SOCIAL_LINKS = {
   instagram: 'https://www.instagram.com/sant.pathikvidyalaya?igsh=MXRhMGY5ZzA2OGlvZg==',
   facebook:  'https://www.facebook.com/share/1HXvF61Gqd/',
@@ -36,9 +64,11 @@ function useHashNav() {
     }
 
     if (location.pathname === path || (path === '' && hash)) {
+      // Already on the page — just scroll
       var el = document.getElementById(parts[1])
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
     } else {
+      // Navigate first, then scroll after page loads
       navigate(path + hash)
       setTimeout(function() {
         var el2 = document.getElementById(parts[1])
@@ -66,6 +96,7 @@ const FACILITIES_DROPDOWN = [
   { to:'/facilities#sports',     icon:<FaFutbol size={16} color="#000"/>,  label:'Sports Ground',    desc:'Cricket · Football · Athletics' },
 ]
 
+/* ── DropPanel — uses goTo for hash scrolling ── */
 function DropPanel({ items, onClose }) {
   var goTo = useHashNav()
 
@@ -130,6 +161,7 @@ function NavItem({ to, label, dropdown, isActive, onClose }) {
   )
 }
 
+/* ── Mobile nav ── */
 const MOB_NAV = [
   { to:'/',             icon:<FaHome size={17}/>,          label:'Home' },
   { icon:<FaLandmark size={17}/>, label:'About Us', to:'/about', sub:[
@@ -165,6 +197,7 @@ const MOB_NAV = [
   { to:'/mandatory-disclosure', icon:<FaClipboardList size={17}/>,label:'Mandatory Disclosure' },
 ]
 
+/* ── MobNavRow — also uses goTo for hash links ── */
 function MobNavRow({ item, isActive, onClose }) {
   var [open, setOpen] = useState(false)
   var hasSub = item.sub && item.sub.length > 0
@@ -237,6 +270,7 @@ export default function Navbar() {
 
   useEffect(() => { setMobile(false) }, [location])
 
+  // ── Scroll to hash after navigation ──
   useEffect(() => {
     if (location.hash) {
       var id = location.hash.replace('#', '')
@@ -325,20 +359,10 @@ export default function Navbar() {
       <header style={{position:'sticky',top:0,zIndex:200,background:'rgba(255,253,248,.97)',backdropFilter:'blur(20px)',WebkitBackdropFilter:'blur(20px)',borderBottom:'1px solid rgba(232,118,26,.13)',boxShadow:scrolled?'0 4px 40px rgba(232,118,26,.18)':'0 2px 16px rgba(232,118,26,.06)',transition:'all .3s'}}>
         <div style={{maxWidth:'1280px',margin:'0 auto',padding:'0 20px',display:'flex',alignItems:'center',gap:'16px',height:'76px'}}>
           <Link to="/" style={{display:'flex',alignItems:'center',gap:'13px',flexShrink:0,textDecoration:'none'}}>
-            {/* ── Logo image — no clipping, full circle visible ── */}
-            <div
-              style={{width:'62px',height:'62px',flexShrink:0,transition:'all .5s cubic-bezier(.34,1.56,.64,1)'}}
-              onMouseEnter={function(e){e.currentTarget.style.transform='rotate(8deg) scale(1.06)'}}
-              onMouseLeave={function(e){e.currentTarget.style.transform=''}}
-            >
-              <img
-                src="/logo/school.PNG"
-                alt="Sant Pathik Vidyalaya Logo"
-                width={62}
-                height={62}
-                style={{objectFit:'contain',display:'block',width:'100%',height:'100%'}}
-              />
-            </div>
+            <div style={{width:'62px',height:'62px',borderRadius:'50%',overflow:'hidden',border:'2.5px solid rgba(245,184,0,.4)',boxShadow:'0 4px 18px rgba(245,184,0,.22)',background:'#FFF8DC',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,transition:'all .5s cubic-bezier(.34,1.56,.64,1)'}}
+              onMouseEnter={function(e){e.currentTarget.style.transform='rotate(8deg) scale(1.06)';e.currentTarget.style.borderColor='#F5B800'}}
+              onMouseLeave={function(e){e.currentTarget.style.transform='';e.currentTarget.style.borderColor='rgba(245,184,0,.4)'}}
+            ><SchoolLogo size={58}/></div>
             <div>
               <div style={{fontFamily:"'Playfair Display',serif",fontSize:'17px',fontWeight:700,color:'#C45F0A',lineHeight:1.2}}>{settings.school?.name || 'Sant Pathik Vidyalaya'}</div>
               <div style={{fontFamily:"'Playfair Display',serif",fontSize:'10px',fontStyle:'italic',fontWeight:400,color:'#F5B800',letterSpacing:'.5px'}}>Work is Worship — ॐ</div>
@@ -367,15 +391,8 @@ export default function Navbar() {
       {mobileOpen && (
         <div style={{position:'fixed',inset:0,zIndex:1000,background:'#FFFDF8',display:'flex',flexDirection:'column',overflowY:'hidden'}}>
           <div style={{background:'linear-gradient(135deg,#1C0A00,#3D1A00)',padding:'18px 16px',display:'flex',alignItems:'center',gap:'13px',flexShrink:0}}>
-            {/* ── Mobile menu logo ── */}
-            <div style={{width:'52px',height:'52px',flexShrink:0}}>
-              <img
-                src="/logo/school.PNG"
-                alt="Sant Pathik Vidyalaya Logo"
-                width={52}
-                height={52}
-                style={{objectFit:'contain',display:'block',width:'100%',height:'100%'}}
-              />
+            <div style={{width:'52px',height:'52px',borderRadius:'50%',overflow:'hidden',border:'2.5px solid rgba(245,184,0,.5)',background:'#FFF8DC',flexShrink:0,display:'flex',alignItems:'center',justifyContent:'center'}}>
+              <SchoolLogo size={48}/>
             </div>
             <div style={{flex:1,minWidth:0}}>
               <div style={{fontFamily:"'Poppins',sans-serif",fontSize:'10px',fontWeight:500,color:'rgba(255,210,130,.6)',letterSpacing:'1.2px',textTransform:'uppercase',marginBottom:'2px'}}>Welcome to</div>
@@ -447,6 +464,7 @@ export default function Navbar() {
         .mob-soc-fb:hover { background:#1877F2; border-color:transparent; }
         .mob-soc-yt:hover { background:#FF0000; border-color:transparent; }
 
+        /* ── Restore chatbot orange color (overrides purple from global CSS) ── */
         .chat-btn { background:linear-gradient(135deg,#E8761A,#F5B800) !important; animation:chatPulse 2.5s 1.2s ease-in-out infinite !important; }
         .chat-tip { color:#E8761A !important; }
         .cp-send  { background:linear-gradient(135deg,#E8761A,#F5B800) !important; }

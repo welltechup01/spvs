@@ -321,7 +321,7 @@ export default function ManageTransportPage() {
                 <div><label style={s.label}>Departure Time</label><input name="departs" value={current.departs} onChange={handleChange} placeholder="e.g. 7:00 AM" style={s.inp} onFocus={inf} onBlur={inb} /></div>
                 <div><label style={s.label}>Return Time</label><input name="returns" value={current.returns} onChange={handleChange} placeholder="e.g. 2:30 PM" style={s.inp} onFocus={inf} onBlur={inb} /></div>
               </div>
-              <div><label style={s.label}>Bus Stops (comma separated)</label><textarea name="stops" value={current.stops} onChange={handleChange} rows={3} placeholder="Stop 1, Stop 2, Stop 3, SPVS Gate" style={{...s.inp,resize:'vertical'}} onFocus={inf} onBlur={inb} /></div>
+              <div><label style={s.label}>Bus Stops (comma separated)</label><textarea name="stops" value={current.stops} onChange={handleChange} rows={3} placeholder="Stop 1, Stop 2, Stop 3, SPV Gate" style={{...s.inp,resize:'vertical'}} onFocus={inf} onBlur={inb} /></div>
             </div>
             <div style={{display:'flex',gap:'10px',justifyContent:'flex-end',marginTop:'20px',flexWrap:'wrap'}}>
               <button onClick={closeModal} style={{...s.btn,background:'#FFF6EA',color:'#7A4010',border:'1.5px solid rgba(232,118,26,.2)'}}>Cancel</button>

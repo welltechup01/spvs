@@ -10,10 +10,10 @@ var REASONS = [
   { icon:<FaHome size={28} color="#6C3FC5"/>,             title:'Boys Hostel Facility',      desc:'Safe and supervised hostel for outstation students with nutritious meals, study hall and recreational facilities.',            clr:'#6C3FC5' },
   { icon:<FaMobileAlt size={28} color="#22a35a"/>,        title:'Smart Classrooms',          desc:'Technology-integrated classrooms with digital boards, projectors and e-learning tools for modern education.',                  clr:'#22a35a' },
   { icon:<FaFlask size={28} color="#F5B800"/>,            title:'Modern Laboratories',       desc:'Well-equipped laboratories for Physics, Chemistry, Biology, Mathematics, Computer Science and a STEM Tinkering Lab.',          clr:'#F5B800' },
-  { icon:<FaLandmark size={28} color="#E8761A"/>,         title:'37+ Years of Excellence',   desc:'Established in 1987, SPVS has a proven track record of academic excellence and character building across generations.',        clr:'#E8761A' },
+  { icon:<FaLandmark size={28} color="#E8761A"/>,         title:'37+ Years of Excellence',   desc:'Established in 1987, SPV has a proven track record of academic excellence and character building across generations.',        clr:'#E8761A' },
   { icon:<FaPalette size={28} color="#6C3FC5"/>,          title:'Co-curricular Excellence',  desc:'Sports, cultural activities and competitions organized throughout the year to develop confidence and teamwork skills.',         clr:'#6C3FC5' },
   { icon:<FaMoneyBillWave size={28} color="#22a35a"/>,    title:'Affordable Fee Structure',  desc:'Quality education at reasonable fees — from ₹1,200/month for Nursery to ₹3,300/month for Class XI–XII.',                      clr:'#22a35a' },
-  { icon:<FaHandshake size={28} color="#F5B800"/>,        title:'Strong Alumni Network',     desc:'Thousands of successful alumni in medicine, engineering, civil services and business — proud ambassadors of SPVS.',           clr:'#F5B800' },
+  { icon:<FaHandshake size={28} color="#F5B800"/>,        title:'Strong Alumni Network',     desc:'Thousands of successful alumni in medicine, engineering, civil services and business — proud ambassadors of SPV.',           clr:'#F5B800' },
 ]
 
 var STATS = [
@@ -38,10 +38,10 @@ var COMPARE = [
 ]
 
 var TESTIMONIALS = [
-  { name:'Mr. Rajiv Sharma',    role:'Parent, Class X student',  text:'My son has grown tremendously at SPVS — academically and as a person. The teachers genuinely care about every student.', avatar:'RS', clr:'#E8761A' },
-  { name:'Priya Mishra',        role:'Alumni, Now Engineer',      text:'SPVS gave me the foundation to crack JEE. The science labs and dedicated teachers made all the difference in my career.', avatar:'PM', clr:'#6C3FC5' },
-  { name:'Mrs. Sunita Agarwal', role:'Parent, Class VII student', text:'The discipline, values and academic rigour at SPVS are unmatched. My daughter loves coming to school every day.',          avatar:'SA', clr:'#22a35a' },
-  { name:'Amit Tiwari',         role:'Alumni, IAS Officer',       text:'I am proud to be an SPVS alumnus. The school instilled in me the values of hard work and integrity that have guided my life.', avatar:'AT', clr:'#F5B800' },
+  { name:'Mr. Rajiv Sharma',    role:'Parent, Class X student',  text:'My son has grown tremendously at SPV — academically and as a person. The teachers genuinely care about every student.', avatar:'RS', clr:'#E8761A' },
+  { name:'Priya Mishra',        role:'Alumni, Now Engineer',      text:'SPV gave me the foundation to crack JEE. The science labs and dedicated teachers made all the difference in my career.', avatar:'PM', clr:'#6C3FC5' },
+  { name:'Mrs. Sunita Agarwal', role:'Parent, Class VII student', text:'The discipline, values and academic rigour at SPV are unmatched. My daughter loves coming to school every day.',          avatar:'SA', clr:'#22a35a' },
+  { name:'Amit Tiwari',         role:'Alumni, IAS Officer',       text:'I am proud to be an SPV alumnus. The school instilled in me the values of hard work and integrity that have guided my life.', avatar:'AT', clr:'#F5B800' },
 ]
 
 export default function WhyChooseUsPage() {
@@ -50,7 +50,7 @@ export default function WhyChooseUsPage() {
       <div className="page-banner">
         <div className="pb-inner">
           <div className="pb-chip" style={{display:'inline-flex',alignItems:'center',gap:'6px'}}><FaTrophy size={12}/> Why Choose Us</div>
-          <h1 className="pb-title">Why Choose <span style={{color:'var(--gd2)',fontStyle:'italic'}}>SPVS?</span></h1>
+          <h1 className="pb-title">Why Choose <span style={{color:'var(--gd2)',fontStyle:'italic'}}>SPV?</span></h1>
           <p className="pb-sub">37 years of excellence · 1410+ students · CBSE affiliated · Bahraich's most trusted school</p>
           <div className="breadcrumb">
             <Link to="/">Home</Link><span>›</span>
@@ -80,7 +80,7 @@ export default function WhyChooseUsPage() {
           <div style={{marginBottom:'72px'}}>
             <div style={{textAlign:'center',marginBottom:'40px'}}>
               <div style={{display:'inline-block',fontSize:'11px',fontWeight:'800',letterSpacing:'2px',textTransform:'uppercase',color:'var(--or)',background:'rgba(232,118,26,.1)',padding:'6px 16px',borderRadius:'50px',marginBottom:'12px'}}>Our Strengths</div>
-              <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:'34px',fontWeight:'700',color:'var(--dark)',margin:'0 0 12px'}}>12 Reasons to Choose <span style={{color:'var(--or)',fontStyle:'italic'}}>SPVS</span></h2>
+              <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:'34px',fontWeight:'700',color:'var(--dark)',margin:'0 0 12px'}}>12 Reasons to Choose <span style={{color:'var(--or)',fontStyle:'italic'}}>SPV</span></h2>
               <p style={{fontSize:'15px',color:'var(--txt2)',maxWidth:'560px',margin:'0 auto',lineHeight:'1.7'}}>We don't just educate — we inspire, nurture and shape the leaders of tomorrow.</p>
             </div>
             <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(280px,1fr))',gap:'18px'}}>
@@ -104,14 +104,14 @@ export default function WhyChooseUsPage() {
           <div style={{marginBottom:'72px'}}>
             <div style={{textAlign:'center',marginBottom:'36px'}}>
               <div style={{display:'inline-block',fontSize:'11px',fontWeight:'800',letterSpacing:'2px',textTransform:'uppercase',color:'var(--or)',background:'rgba(232,118,26,.1)',padding:'6px 16px',borderRadius:'50px',marginBottom:'12px'}}>Comparison</div>
-              <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:'32px',fontWeight:'700',color:'var(--dark)',margin:0}}>SPVS vs <span style={{color:'var(--or)',fontStyle:'italic'}}>Other Schools</span></h2>
+              <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:'32px',fontWeight:'700',color:'var(--dark)',margin:0}}>SPV vs <span style={{color:'var(--or)',fontStyle:'italic'}}>Other Schools</span></h2>
             </div>
             <div style={{borderRadius:'20px',overflow:'hidden',border:'1.5px solid var(--brd)',boxShadow:'0 8px 36px rgba(232,118,26,.07)'}}>
               <table style={{width:'100%',borderCollapse:'collapse'}}>
                 <thead>
                   <tr style={{background:'linear-gradient(135deg,var(--dark),var(--dark2))'}}>
                     <th style={{padding:'16px 20px',textAlign:'left',fontSize:'12px',fontWeight:'800',color:'rgba(255,255,255,.6)',letterSpacing:'1px',textTransform:'uppercase',width:'50%'}}>Feature</th>
-                    <th style={{padding:'16px 20px',textAlign:'center',fontSize:'12px',fontWeight:'800',color:'var(--gd2)',letterSpacing:'1px',textTransform:'uppercase',width:'25%',display:'flex',alignItems:'center',justifyContent:'center',gap:'5px'}}><FaTrophy size={12}/> SPVS</th>
+                    <th style={{padding:'16px 20px',textAlign:'center',fontSize:'12px',fontWeight:'800',color:'var(--gd2)',letterSpacing:'1px',textTransform:'uppercase',width:'25%',display:'flex',alignItems:'center',justifyContent:'center',gap:'5px'}}><FaTrophy size={12}/> SPV</th>
                     <th style={{padding:'16px 20px',textAlign:'center',fontSize:'12px',fontWeight:'800',color:'rgba(255,255,255,.4)',letterSpacing:'1px',textTransform:'uppercase',width:'25%'}}>Others</th>
                   </tr>
                 </thead>
@@ -171,7 +171,7 @@ export default function WhyChooseUsPage() {
             <div style={{position:'absolute',width:'200px',height:'200px',borderRadius:'50%',background:'rgba(245,184,0,.06)',bottom:'-50px',left:'-40px'}} />
             <div style={{position:'relative',zIndex:1}}>
               <FaGraduationCap size={40} color="#FFCF40" style={{marginBottom:'16px'}}/>
-              <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:'32px',fontWeight:'700',color:'#fff',margin:'0 0 12px'}}>Ready to Join the SPVS Family?</h2>
+              <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:'32px',fontWeight:'700',color:'#fff',margin:'0 0 12px'}}>Ready to Join the SPV Family?</h2>
               <p style={{fontSize:'15px',color:'rgba(255,255,255,.65)',maxWidth:'500px',margin:'0 auto 32px',lineHeight:'1.7'}}>
                 Admissions open for 2026–27. Limited seats available. Contact us today to secure your child's future.
               </p>

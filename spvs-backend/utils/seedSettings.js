@@ -11,7 +11,7 @@ const DEFAULTS = {
     students:'1410', classrooms:'73', labs:'8', buses:'22', area:'10 Acres',
     board:'CBSE', medium:'Hindi & English', session:'2026-27',
     address:'Bahraich, Uttar Pradesh — 271801',
-    principalName:'Mrs. Pooja Agarwal', principalQual:'M.A. B.Ed', principalPhone:'8318842325',
+    principalName:'Mrs. Puja Agarwal', principalQual:'M.A. B.Ed', principalPhone:'8318842325',
     vpName:'Mr. Bhikha Ram Tripathi', vpQual:'M.Sc B.Ed', vpPhone:'8318600231',
     directorName:'Sh. Awadhesh Narayan Agarwal', directorPhone:'9198783830',
   },

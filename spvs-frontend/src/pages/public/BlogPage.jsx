@@ -26,7 +26,7 @@ export default function BlogPage() {
         <div className="pb-inner">
           <div className="pb-chip" style={{display:'inline-flex',alignItems:'center',gap:'6px'}}><FaNewspaper size={12}/> Blog & Updates</div>
           <h1 className="pb-title">Latest <span style={{color:'var(--gd2)',fontStyle:'italic'}}>News & Updates</span></h1>
-          <p className="pb-sub">School announcements, achievements, events and academic updates — stay informed with SPVS</p>
+          <p className="pb-sub">School announcements, achievements, events and academic updates — stay informed with SPV</p>
           <div className="breadcrumb">
             <Link to="/">Home</Link><span>›</span>
             <span className="bc-cur">Blog & Updates</span>

@@ -256,7 +256,7 @@ export default function ManageFacultyPage() {
               </div>
               <div className="mfp-mgrid">
                 <div><label style={s.label}>Phone</label><input name="phone" value={current.phone} onChange={handleChange} placeholder="10-digit number" style={s.inp} onFocus={inf} onBlur={inb} /></div>
-                <div><label style={s.label}>Email</label><input name="email" value={current.email} onChange={handleChange} placeholder="email@spvs.edu" style={s.inp} onFocus={inf} onBlur={inb} /></div>
+                <div><label style={s.label}>Email</label><input name="email" value={current.email} onChange={handleChange} placeholder="email@spv.edu" style={s.inp} onFocus={inf} onBlur={inb} /></div>
               </div>
               <div><label style={s.label}>Status</label><select name="status" value={current.status} onChange={handleChange} style={s.inp} onFocus={inf} onBlur={inb}><option>Active</option><option>On Leave</option></select></div>
               <div>

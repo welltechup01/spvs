@@ -13,9 +13,9 @@ var STATS = [
 ]
 
 var TESTIMONIALS = [
-  { name:'Priya Shukla',   batch:'2003', text:'SPVS gave me the discipline and values to crack UPSC. I am forever grateful to my teachers who believed in me.', avatar:'PS', clr:'#6C3FC5' },
-  { name:'Rahul Verma',    batch:'2005', text:'The science labs and dedicated faculty at SPVS built my passion for engineering. Working at ISRO was a dream SPVS helped me achieve.', avatar:'RV', clr:'#22a35a' },
-  { name:'Sanjay Agarwal', batch:'2007', text:'Entrepreneurship needs courage. SPVS gave me that through co-curricular activities and a never-give-up culture.', avatar:'SA', clr:'#E8761A' },
+  { name:'Priya Shukla',   batch:'2003', text:'SPV gave me the discipline and values to crack UPSC. I am forever grateful to my teachers who believed in me.', avatar:'PS', clr:'#6C3FC5' },
+  { name:'Rahul Verma',    batch:'2005', text:'The science labs and dedicated faculty at SPV built my passion for engineering. Working at ISRO was a dream SPV helped me achieve.', avatar:'RV', clr:'#22a35a' },
+  { name:'Sanjay Agarwal', batch:'2007', text:'Entrepreneurship needs courage. SPV gave me that through co-curricular activities and a never-give-up culture.', avatar:'SA', clr:'#E8761A' },
 ]
 
 export default function AlumniPage() {
@@ -46,7 +46,7 @@ export default function AlumniPage() {
         <div className="pb-inner">
           <div className="pb-chip" style={{display:'inline-flex',alignItems:'center',gap:'6px'}}><FaGraduationCap size={12}/> Alumni</div>
           <h1 className="pb-title">Our <span style={{color:'var(--gd2)',fontStyle:'italic'}}>Alumni</span></h1>
-          <p className="pb-sub">5000+ proud alumni — doctors, engineers, IAS officers and entrepreneurs — the living legacy of SPVS</p>
+          <p className="pb-sub">5000+ proud alumni — doctors, engineers, IAS officers and entrepreneurs — the living legacy of SPV</p>
           <div className="breadcrumb">
             <Link to="/">Home</Link><span>›</span>
             <span className="bc-cur">Alumni</span>

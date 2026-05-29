@@ -26,7 +26,7 @@ export default function PublicLayout() {
       <ChatbotFloat />
       <AdmissionCTA />
 
-      {/* Scroll-to-top — right side, always above chatbot icon */}
+      {/* ── Scroll-to-top button ── sits directly above chatbot float ── */}
       <button
         className={`stbtn${showTop ? ' vis' : ''}`}
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -35,16 +35,20 @@ export default function PublicLayout() {
 
       <style>{`
         /*
-          Stack order on ALL screens (bottom → top):
-          ┌─────────────────────────────┐
-          │  Chatbot     right:16 bot:24  │  ≈52px tall
-          │  Scroll↑     right:16 bot:88  │  (24 + 52 + 12gap)
-          └─────────────────────────────┘
+          RIGHT SIDE — bottom to top stack (desktop):
+          ┌─────────────────────────────────────────┐
+          │  .chat-float   right:16  bottom:24       │  btn 54px + tip ~22px = ~76px total
+          │  .stbtn        right:16  bottom:112       │  (24 + 76 + 12px gap)
+          └─────────────────────────────────────────┘
+
+          LEFT SIDE (unchanged):
+          └─ .wa-float     left:16   bottom:24
         */
+
         .stbtn {
           position: fixed;
           right: 16px;
-          bottom: 88px;
+          bottom: 112px;        /* 24 + 54px(btn) + 22px(tip+gap) + 12px breathing room */
           width: 42px;
           height: 42px;
           border-radius: 50%;
@@ -53,6 +57,7 @@ export default function PublicLayout() {
           border: none;
           font-size: 18px;
           font-weight: 700;
+          line-height: 1;
           cursor: pointer;
           z-index: 450;
           display: flex;
@@ -75,30 +80,31 @@ export default function PublicLayout() {
         }
 
         /*
-          Mobile stack (bottom → top):
-          ┌──────────────────────────────────┐
-          │  AdmissionCTA bar   bot:0  h≈60   │
-          │  Chatbot            bot:124        │
-          │  Scroll↑            bot:178        │  (124 + 44 + 10gap)
-          └──────────────────────────────────┘
+          MOBILE right-side stack (bottom → top):
+          ┌──────────────────────────────────────────────┐
+          │  .mob-cta bar        bottom:0    height:~60px │
+          │  .chat-float         bottom:72   (above cta)  │  46px btn + 16px tip = 62px
+          │  .stbtn              bottom:146  (72+62+12)   │
+          └──────────────────────────────────────────────┘
         */
         @media (max-width: 768px) {
           .stbtn {
             right: 14px;
-            bottom: 178px;
+            bottom: 146px;
             width: 38px;
             height: 38px;
             font-size: 15px;
           }
         }
 
-        /* Very small phones — chatbot hidden, drop scroll btn closer to bottom */
+        /* Very small phones */
         @media (max-width: 390px) {
           .stbtn {
-            right: 14px;
-            bottom: 80px;
+            right: 12px;
+            bottom: 140px;
             width: 36px;
             height: 36px;
+            font-size: 14px;
           }
         }
       `}</style>

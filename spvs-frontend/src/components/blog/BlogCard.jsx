@@ -148,7 +148,7 @@ export default function BlogCard({ post, featured }) {
           <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',paddingTop:'12px',borderTop:'1.5px solid var(--brd)'}}>
             <div style={{display:'flex',alignItems:'center',gap:'6px'}}>
               <div style={{width:'6px',height:'6px',borderRadius:'50%',background:clr,boxShadow:'0 0 6px '+clr}} />
-              <span style={{fontSize:'11px',fontWeight:'700',color:clr}}>{post.author || 'SPVS'}</span>
+              <span style={{fontSize:'11px',fontWeight:'700',color:clr}}>{post.author || 'SPV'}</span>
             </div>
             <Link to={'/blog/'+post.slug} style={{display:'inline-flex',alignItems:'center',gap:'5px',fontSize:'12px',fontWeight:'800',color:'#fff',background:'linear-gradient(135deg,'+clr+','+clr+'cc)',padding:'6px 14px',borderRadius:'50px',textDecoration:'none',boxShadow:'0 3px 10px '+clr+'40',transition:'transform .2s,box-shadow .2s'}}
               onMouseEnter={function(e){e.currentTarget.style.transform='scale(1.05)';e.currentTarget.style.boxShadow='0 5px 16px '+clr+'55'}}

@@ -3,9 +3,9 @@ import { testimonialAPI } from '../../api'
 import { FaStar } from 'react-icons/fa'
 
 var FALLBACK = [
-  { message:"The teachers at SPVS are very dedicated. My daughter improved tremendously in academics and also developed her personality. Best school in Bahraich!", name:"Rajesh Kumar", role:"Parent — Class X" },
-  { message:"My son won a prize at KBC! The school environment gave him the confidence to participate. We are so proud of SPVS and their encouragement.", name:"Sunita Raghuvansh", role:"Parent — Class V" },
-  { message:"I passed Class XII from SPVS and now I'm at IIT BHU. The foundation built here prepared me for everything. Grateful to all my teachers.", name:"Shrami Agarwal", role:"Alumni — IIT BHU Student" },
+  { message:"The teachers at SPV are very dedicated. My daughter improved tremendously in academics and also developed her personality. Best school in Bahraich!", name:"Rajesh Kumar", role:"Parent — Class X" },
+  { message:"My son won a prize at KBC! The school environment gave him the confidence to participate. We are so proud of SPV and their encouragement.", name:"Sunita Raghuvansh", role:"Parent — Class V" },
+  { message:"I passed Class XII from SPV and now I'm at IIT BHU. The foundation built here prepared me for everything. Grateful to all my teachers.", name:"Shrami Agarwal", role:"Alumni — IIT BHU Student" },
 ]
 
 function avatar(name){ return (name||'?').split(' ').slice(0,2).map(function(w){return w[0]}).join('').toUpperCase() }
@@ -36,7 +36,7 @@ export default function Testimonials() {
           <div className="vid-box rv" style={{position:'relative',overflow:'hidden',borderRadius:'24px',border:'3px solid rgba(232,118,26,.2)',boxShadow:'0 20px 60px rgba(232,118,26,.15)'}}>
             <img
               src="/images/school_students.jpg"
-              alt="SPVS Students"
+              alt="SPV Students"
               className="testi-img"
               style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'center top',display:'block',transition:'transform .5s cubic-bezier(.25,.46,.45,.94)'}}
               onError={function(e){

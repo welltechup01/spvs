@@ -242,8 +242,8 @@ Each one is special. Each one is beautiful.</strong>`
 const LEADERS = [
   {
     type: "b",
-    photo: null, emoji: "👩‍🏫",
-    name: "Mrs. Pooja Agarwal",
+    photo: "/images/Principal.webp",
+    name: "Mrs. Puja Agarwal",
     role: "Principal",
     phone: "+91 8318842325",
     msgTitle: "Principal's Message",
@@ -253,7 +253,7 @@ const LEADERS = [
       "Our children are not only taught to fly high in the open sky of tremendous opportunities but also to <b>stay attached to their roots</b>. Our Vidyalaya imparts value and skill-based education, bringing out the best in every child.",
       "Our earnest effort is to provide a <b>conducive learning environment</b> to each and every student so that when they go out of our portals, they brim with confidence and emerge as the leading human beings of tomorrow.",
       "The essence of Sant Pathik Vidyalaya lies in its <b>inclusiveness</b>. The mentors at our school are competent, hardworking, dedicated and committed to excellence. Education is not just the transfer of information — it is the transformation of character.",
-      "We strive to make SPVS a place where <b>curiosity is celebrated, creativity is nurtured</b>, and every student is equipped with the skills, values and confidence to make a meaningful difference in the world.",
+      "We strive to make SPV a place where <b>curiosity is celebrated, creativity is nurtured</b>, and every student is equipped with the skills, values and confidence to make a meaningful difference in the world.",
     ],
     stats: [
       { l:'Qualification', v:'M.A. B.Ed' },

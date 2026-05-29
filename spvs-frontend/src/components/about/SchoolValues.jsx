@@ -3,7 +3,7 @@ import { FaBook, FaHandshake, FaStar, FaUsers, FaFlag, FaFistRaised, FaLandmark,
 
 var VALUES = [
   { icon:<FaBook size={26} color="#E8761A"/>,           title:'Knowledge',      color:'#E8761A', desc:'We believe education must evolve from mere information to deep wisdom — nurturing curious, critical thinkers.' },
-  { icon:<FaHandshake size={26} color="#22a35a"/>,      title:'Integrity',      color:'#22a35a', desc:'Honesty, transparency and moral uprightness form the backbone of every interaction at SPVS.' },
+  { icon:<FaHandshake size={26} color="#22a35a"/>,      title:'Integrity',      color:'#22a35a', desc:'Honesty, transparency and moral uprightness form the backbone of every interaction at SPV.' },
   { icon:<FaStar size={26} color="#F5B800"/>,           title:'Excellence',     color:'#F5B800', desc:'We settle for nothing less than the best — in academics, in character, in every endeavour we undertake.' },
   { icon:<FaUsers size={26} color="#6C3FC5"/>,          title:'Cooperation',    color:'#6C3FC5', desc:'From competition to collaboration — we teach students that collective success far surpasses individual achievement.' },
   { icon:<FaFlag size={26} color="#C45F0A"/>,           title:'Cultural Pride', color:'#C45F0A', desc:'Modern education rooted in Indian values — globally competitive yet culturally grounded.' },

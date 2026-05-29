@@ -17,15 +17,12 @@
   --brd:rgba(232,118,26,.15);
   --shd:rgba(232,118,26,.2);
   --shd2:rgba(245,184,0,.22);
-
-  /* Font variables */
   --font-head: 'Playfair Display', serif;
   --font-body: 'Poppins', sans-serif;
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-/* BASE FONT → Poppins 400 */
 body{font-family:'Poppins',sans-serif;font-weight:400;background:var(--bg);color:var(--txt);overflow-x:hidden}
 img{max-width:100%;display:block}
 a{text-decoration:none}
@@ -58,12 +55,7 @@ a{text-decoration:none}
 /* ════════════════════════════════════════
    PRELOADER
 ════════════════════════════════════════ */
-#preloader{
-  position:fixed;inset:0;z-index:99999;
-  background:radial-gradient(ellipse at 40% 40%,#FFF8DC 0%,#FFF3C0 40%,#FFEAD0 100%);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;
-  transition:opacity .8s ease,transform .8s ease;
-}
+#preloader{position:fixed;inset:0;z-index:99999;background:radial-gradient(ellipse at 40% 40%,#FFF8DC 0%,#FFF3C0 40%,#FFEAD0 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;transition:opacity .8s ease,transform .8s ease;}
 #preloader.hide{opacity:0;transform:scale(1.04);pointer-events:none}
 .pl-logo-ring{position:relative;width:130px;height:130px;animation:logoIn .6s cubic-bezier(.34,1.56,.64,1) both}
 .pl-logo-ring svg{width:130px;height:130px;filter:drop-shadow(0 10px 40px rgba(245,184,0,.6)) drop-shadow(0 0 20px rgba(232,118,26,.3))}
@@ -71,9 +63,7 @@ a{text-decoration:none}
 .pl-ring-orbit2{position:absolute;inset:-28px;border-radius:50%;border:1.5px dashed rgba(245,184,0,.25);animation:orbit 5s linear infinite reverse}
 .pl-orb{position:absolute;width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--or),var(--gd));top:-5px;left:50%;transform:translateX(-50%);box-shadow:0 0 12px var(--or),0 0 24px var(--gd)}
 .pl-orb2{position:absolute;width:7px;height:7px;border-radius:50%;background:var(--gd);top:50%;right:-19.5px;transform:translateY(-50%);box-shadow:0 0 10px var(--gd)}
-/* Preloader school name → Playfair Display 700 */
 .pl-school-name{font-family:'Playfair Display',serif;font-size:clamp(18px,5vw,26px);font-weight:700;color:var(--dark2);letter-spacing:2px;text-align:center;animation:fadeUp .8s ease .3s both}
-/* Preloader tagline → Poppins 400 */
 .pl-tagline{font-family:'Poppins',sans-serif;font-size:12px;letter-spacing:3px;color:var(--txt3);text-transform:uppercase;animation:fadeUp .8s ease .5s both}
 .pl-progress{width:200px;height:3px;background:rgba(232,118,26,.15);border-radius:3px;overflow:hidden;animation:fadeUp .8s ease .6s both}
 .pl-prog-fill{height:100%;background:linear-gradient(90deg,var(--or),var(--gd),var(--or3));border-radius:3px;animation:progfill 2.8s ease forwards;box-shadow:0 0 10px var(--gd)}
@@ -85,30 +75,26 @@ a{text-decoration:none}
 .wa-btn{width:58px;height:58px;border-radius:50%;background:linear-gradient(145deg,#25D366,#128C3E);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,.5),0 2px 8px rgba(0,0,0,.15);animation:waPulse 2.5s ease-in-out infinite;transition:transform .2s,box-shadow .2s;text-decoration:none}
 .wa-btn:hover{transform:scale(1.13);box-shadow:0 10px 32px rgba(37,211,102,.6)}
 .wa-btn svg{width:30px;height:30px;fill:#fff}
-/* WhatsApp tip → Poppins 700 */
 .wa-tip{font-family:'Poppins',sans-serif;font-size:10px;font-weight:700;letter-spacing:.8px;color:#fff;background:linear-gradient(135deg,#25D366,#128C3E);padding:4px 10px;border-radius:20px;box-shadow:0 2px 8px rgba(37,211,102,.35);white-space:nowrap;text-transform:uppercase}
 
 /* ════════════════════════════════════════
    CHATBOT FLOAT
+   bottom:24px — base anchor for right-side stack
 ════════════════════════════════════════ */
 .chat-float{position:fixed;right:16px;bottom:24px;z-index:500;display:flex;flex-direction:column;align-items:center;gap:6px}
 .chat-btn{width:54px;height:54px;border-radius:50%;border:none;cursor:pointer;background:linear-gradient(135deg,var(--or),var(--gd));display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 6px 24px var(--shd);animation:chatPulse 2.5s 1.2s ease-in-out infinite;transition:transform .2s}
 .chat-btn:hover{transform:scale(1.12)}
-/* Chat tip → Poppins 700 */
 .chat-tip{font-family:'Poppins',sans-serif;font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--txt3);background:var(--card);padding:3px 8px;border-radius:20px;box-shadow:0 2px 8px var(--shd);white-space:nowrap;text-transform:uppercase}
 .chat-popup{position:fixed;right:16px;bottom:90px;z-index:499;width:min(300px,90vw);background:var(--card);border:1.5px solid var(--brd);border-radius:20px;padding:22px;box-shadow:0 20px 70px var(--shd),0 4px 20px rgba(0,0,0,.08);transform:translateY(16px) scale(.95);opacity:0;pointer-events:none;transition:all .35s cubic-bezier(.34,1.56,.64,1)}
 .chat-popup.open{transform:translateY(0) scale(1);opacity:1;pointer-events:all}
 .cp-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--brd)}
 .cp-av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--or),var(--gd));display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-/* Chat name → Poppins 700 */
 .cp-name{font-family:'Poppins',sans-serif;font-size:14px;font-weight:700;color:var(--dark2)}
 .cp-status{font-family:'Poppins',sans-serif;font-size:11px;color:#22a35a;display:flex;align-items:center;gap:4px}
 .cp-dot{width:6px;height:6px;border-radius:50%;background:#22a35a;animation:blink 2s infinite}
 .cp-close{position:absolute;top:12px;right:14px;background:none;border:none;font-size:18px;cursor:pointer;color:var(--txt3);line-height:1}
-/* Chat message → Poppins 400 */
 .cp-msg{font-family:'Poppins',sans-serif;background:var(--bg2);border-radius:12px;padding:12px 14px;font-size:13px;color:var(--txt2);line-height:1.65;margin-bottom:14px;border:1px solid var(--brd)}
 .cp-row{display:flex;gap:8px}
-/* Chat input → Poppins 400 */
 .cp-input{flex:1;padding:10px 14px;border-radius:10px;border:1.5px solid var(--brd);background:var(--bg);color:var(--txt);font-family:'Poppins',sans-serif;font-size:13px;font-weight:400;outline:none;transition:.2s}
 .cp-input:focus{border-color:var(--or);background:var(--card);box-shadow:0 0 0 3px rgba(232,118,26,.1)}
 .cp-input::placeholder{color:var(--txt3);opacity:.6}
@@ -116,21 +102,50 @@ a{text-decoration:none}
 .cp-send:hover{transform:scale(1.1)}
 
 /* ════════════════════════════════════════
+   SCROLL-TO-TOP BUTTON
+   Sits above .chat-float — never overlaps
+   Desktop: bottom:24 + 54(btn) + 22(tip+gap) + 12(breathing) = 112px
+════════════════════════════════════════ */
+.stbtn{
+  position:fixed;
+  right:16px;
+  bottom:112px;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--or),var(--gd));
+  color:#fff;
+  border:none;
+  cursor:pointer;
+  font-size:18px;
+  font-weight:700;
+  line-height:1;
+  box-shadow:0 5px 20px var(--shd);
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(12px);
+  transition:opacity .3s ease,transform .3s ease,box-shadow .3s ease;
+  z-index:450;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.stbtn.vis{opacity:1;pointer-events:all;transform:translateY(0)}
+.stbtn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(232,118,26,.55)}
+
+/* ════════════════════════════════════════
    TOPBAR
 ════════════════════════════════════════ */
 .topbar{background:linear-gradient(90deg,var(--dark),var(--dark2));padding:7px 0;position:relative;z-index:100}
 .tb-inner{max-width:1280px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 .tb-contacts{display:flex;gap:16px;flex-wrap:wrap}
-/* Topbar contact → Poppins 400 */
 .tb-c{display:flex;align-items:center;gap:5px;font-family:'Poppins',sans-serif;font-size:12px;font-weight:400;color:rgba(255,255,255,.6)}
 .tb-c a{color:var(--gd2);transition:.15s}
 .tb-c a:hover{color:#fff}
 .tb-marquee{flex:1;overflow:hidden;min-width:0;max-width:420px}
-/* Marquee text → Poppins 600 */
 .tb-mq-inner{display:inline-block;white-space:nowrap;animation:marquee 28s linear infinite}
 .tb-mq-inner span{font-family:'Poppins',sans-serif;color:var(--gd2);margin:0 36px;font-size:12px;font-weight:600}
 .tb-social{display:flex;gap:6px}
-/* Social icons → Poppins 700 */
 .tb-soc-a{font-family:'Poppins',sans-serif;width:24px;height:24px;border-radius:5px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.7);font-size:11px;font-weight:700;transition:.2s;text-decoration:none}
 .tb-soc-a:hover{background:var(--or);color:#fff}
 
@@ -143,43 +158,31 @@ header.scrolled{box-shadow:0 4px 40px var(--shd)}
 .logo{display:flex;align-items:center;gap:13px;flex-shrink:0;text-decoration:none}
 .logo-wrap{width:62px;height:62px;border-radius:50%;overflow:hidden;border:2.5px solid rgba(245,184,0,.4);box-shadow:0 4px 18px var(--shd2);background:var(--gd3);display:flex;align-items:center;justify-content:center;transition:all .5s cubic-bezier(.34,1.56,.64,1);flex-shrink:0}
 .logo:hover .logo-wrap{border-color:var(--gd);box-shadow:0 6px 28px var(--shd2);transform:rotate(8deg) scale(1.06)}
-/* Logo school name → Playfair Display 700 */
 .logo-text .sn{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--or2);line-height:1.2}
-/* Logo sub text → Poppins 700 */
 .logo-text .st{font-family:'Poppins',sans-serif;font-size:10px;color:var(--gd);font-weight:700;letter-spacing:1.5px;text-transform:uppercase}
-/* Logo secondary → Poppins 500 */
 .logo-text .ss{font-family:'Poppins',sans-serif;font-size:10px;color:var(--txt3);font-weight:500}
-/* Navbar links → Poppins 500 */
 nav{margin-left:auto;display:flex;align-items:center;gap:2px}
 nav a{font-family:'Poppins',sans-serif;font-size:13.5px;font-weight:500;color:var(--txt2);padding:8px 11px;border-radius:8px;text-decoration:none;transition:all .2s;position:relative}
 nav a::after{content:'';position:absolute;bottom:3px;left:11px;right:11px;height:2px;background:linear-gradient(90deg,var(--or),var(--gd));border-radius:2px;transform:scaleX(0);transition:.25s;transform-origin:center}
 nav a:hover,nav a.act{color:var(--or)}
 nav a:hover::after,nav a.act::after{transform:scaleX(1)}
-/* CTA button → Poppins 600 UPPERCASE */
 .hdr-cta{font-family:'Poppins',sans-serif;margin-left:10px;flex-shrink:0;background:linear-gradient(135deg,var(--or),var(--or3));color:#fff;padding:10px 20px;border-radius:10px;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;box-shadow:0 4px 18px var(--shd);transition:all .25s;white-space:nowrap;display:inline-block;text-decoration:none}
 .hdr-cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px var(--shd)}
 .menu-btn{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;margin-left:auto}
 .menu-btn span{width:24px;height:2.5px;background:var(--or);border-radius:3px;display:block;transition:.3s}
-
-/* Mobile Nav */
 .mob-nav{display:none;position:fixed;inset:0;z-index:1000;background:var(--bg);flex-direction:column;overflow-y:auto;padding:72px 28px 40px}
 .mob-nav.open{display:flex}
 .mob-nav-logo{display:flex;align-items:center;gap:10px;margin-bottom:6px;padding-bottom:18px;border-bottom:1.5px solid var(--brd)}
 .mob-nav-logo-ic{width:44px;height:44px;border-radius:50%;overflow:hidden;border:2px solid rgba(245,184,0,.4);background:var(--gd3);flex-shrink:0}
-/* Mobile nav logo → Playfair Display 700 */
 .mob-nav-logo-txt{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--or2);line-height:1.3}
-/* Mobile nav sub → Poppins 400 */
 .mob-nav-logo-sub{font-family:'Poppins',sans-serif;font-size:10px;font-weight:400;color:var(--txt3)}
-/* Mobile nav section label → Poppins 700 */
 .mob-nav-section{font-family:'Poppins',sans-serif;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--txt3);margin:18px 0 8px;display:flex;align-items:center;gap:8px}
 .mob-nav-section::after{content:'';flex:1;height:1px;background:var(--brd)}
-/* Mobile nav links → Poppins 600 */
 .mob-nav a.mnlink{font-family:'Poppins',sans-serif;font-size:15px;font-weight:600;color:var(--txt);text-decoration:none;transition:.18s;display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;margin-bottom:2px}
 .mob-nav a.mnlink:hover,.mob-nav a.mnlink.act{color:var(--or);background:rgba(232,118,26,.07)}
 .mob-nav a.mnlink .mn-em{width:28px;height:28px;border-radius:8px;background:var(--or5);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
 .mob-nav a.mnlink:hover .mn-em,.mob-nav a.mnlink.act .mn-em{background:rgba(232,118,26,.15)}
 .mob-portals{display:grid;grid-template-columns:1fr;gap:9px;margin-top:6px;margin-bottom:16px}
-/* Mobile portal → Poppins 700 */
 .mob-portal{padding:12px 10px;border-radius:12px;text-align:center;cursor:pointer;font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;text-decoration:none;transition:all .22s;display:flex;flex-direction:column;align-items:center;gap:5px;border:1.5px solid var(--brd);background:var(--card);color:var(--txt2)}
 .mob-portal:hover{border-color:var(--or);background:var(--or5);color:var(--or2);transform:translateY(-2px);box-shadow:0 6px 20px var(--shd)}
 .mob-portal .mp-ic{font-size:22px}
@@ -196,19 +199,15 @@ nav a:hover::after,nav a.act::after{transform:scaleX(1)}
 /* ════════════════════════════════════════
    COMMON COMPONENTS
 ════════════════════════════════════════ */
-/* Chip label → Poppins 700 */
 .chip{font-family:'Poppins',sans-serif;display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--or2);padding:6px 16px;border-radius:50px;background:rgba(232,118,26,.08);border:1.5px solid rgba(232,118,26,.2);margin-bottom:14px}
 .chip-dot{width:6px;height:6px;border-radius:50%;background:var(--or);animation:blink 2s infinite}
-/* Section title → Playfair Display 700 */
 .sec-title{font-family:'Playfair Display',serif;font-size:clamp(28px,4.5vw,52px);font-weight:700;line-height:1.1;color:var(--dark);margin-bottom:14px}
 .hl{color:var(--or);font-style:italic}
 .hl2{color:var(--gd)}
 .s-bar{width:48px;height:3.5px;background:linear-gradient(90deg,var(--or),var(--gd));border-radius:3px;margin:10px 0 18px}
-/* Section description → Poppins 400 */
 .s-desc{font-family:'Poppins',sans-serif;font-size:16px;font-weight:400;color:var(--txt2);line-height:1.8;max-width:580px}
 .wcard{background:var(--card);border-radius:20px;border:1.5px solid var(--brd);box-shadow:0 4px 24px rgba(232,118,26,.07);transition:all .38s cubic-bezier(.34,1.56,.64,1);transform-style:preserve-3d}
 .wcard:hover{box-shadow:0 16px 50px var(--shd);border-color:rgba(232,118,26,.3)}
-/* Buttons → Poppins 600 UPPERCASE */
 .btn-or{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--or),var(--or3));color:#fff;padding:14px 28px;border-radius:12px;font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;border:none;cursor:pointer;box-shadow:0 6px 24px var(--shd);transition:all .3s;text-decoration:none}
 .btn-or:hover{transform:translateY(-3px);box-shadow:0 12px 36px var(--shd)}
 .btn-out{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--or);padding:13px 24px;border-radius:12px;font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;border:2px solid var(--or);cursor:pointer;transition:all .25s;text-decoration:none}
@@ -222,29 +221,23 @@ nav a:hover::after,nav a.act::after{transform:scaleX(1)}
 .hero{min-height:100vh;display:flex;align-items:center;background:linear-gradient(135deg,#FFF8E8 0%,#FFF3CC 40%,#FFE8C0 70%,#FFDDA0 100%);overflow:hidden;position:relative}
 .hero-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
 .hero-inner{position:relative;z-index:3;max-width:1280px;margin:0 auto;padding:90px 20px 70px;width:100%;display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
-/* Hero badge → Poppins 700 */
 .hero-badge{font-family:'Poppins',sans-serif;display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--or2);background:rgba(232,118,26,.1);border:1.5px solid rgba(232,118,26,.25);padding:7px 16px;border-radius:50px;margin-bottom:20px;animation:fU .8s ease .2s both}
 .hero-dot{width:7px;height:7px;border-radius:50%;background:var(--or);animation:blink 2s infinite;box-shadow:0 0 6px var(--or)}
-/* Hero main heading → Playfair Display 700 */
 .hero-h1{font-family:'Playfair Display',serif;font-size:clamp(38px,5.5vw,74px);font-weight:700;color:var(--dark);line-height:1.04;letter-spacing:-.5px;animation:fU .85s ease .4s both;margin-bottom:14px}
 .hero-h1 .ita{color:var(--or);font-style:italic}
 .hero-h1 .gol{color:var(--or2)}
-/* Hero sub → Playfair Display 400 italic (tagline) */
 .hero-sub{font-family:'Playfair Display',serif;font-size:clamp(16px,2vw,22px);color:var(--txt3);font-style:italic;font-weight:400;animation:fU .85s ease .55s both;margin-bottom:20px}
-/* Hero desc → Poppins 400 */
 .hero-desc{font-family:'Poppins',sans-serif;font-size:16px;font-weight:400;color:var(--txt2);line-height:1.78;max-width:520px;animation:fU .85s ease .7s both;margin-bottom:32px}
 .hero-btns{display:flex;gap:14px;flex-wrap:wrap;animation:fU .85s ease .85s both;margin-bottom:38px}
 .hero-trust{display:flex;align-items:center;gap:20px;flex-wrap:wrap;animation:fU .85s ease 1s both}
 .avs{display:flex}
 .av{width:34px;height:34px;border-radius:50%;border:2.5px solid rgba(232,118,26,.3);background:linear-gradient(135deg,var(--or3),var(--gd));display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;margin-left:-8px;box-shadow:0 2px 8px rgba(0,0,0,.12)}
 .av:first-child{margin-left:0}
-/* Trust text → Poppins 400 */
 .tr-info{font-family:'Poppins',sans-serif;font-size:13px;font-weight:400;color:var(--txt2)}
 .tr-info strong{font-family:'Poppins',sans-serif;font-weight:700;color:var(--dark)}
 .tr-div{width:1px;height:26px;background:var(--brd)}
 .stars{display:flex;gap:1px}
 .stars span{color:var(--gd);font-size:15px;text-shadow:0 0 6px rgba(245,184,0,.6)}
-/* Rating text → Poppins 400 */
 .rat-txt{font-family:'Poppins',sans-serif;font-size:13px;font-weight:400;color:var(--txt2)}
 .rat-txt strong{font-weight:700;color:var(--dark)}
 .hero-right{position:relative;animation:fR .9s ease .35s both}
@@ -255,9 +248,7 @@ nav a:hover::after,nav a.act::after{transform:scaleX(1)}
 .hero-img-ov{position:absolute;inset:0;background:linear-gradient(0deg,rgba(28,10,0,.65) 0%,rgba(28,10,0,.15) 55%,transparent 100%)}
 .hero-img-txt{position:absolute;bottom:26px;left:26px;right:26px}
 .h-img-badge{font-family:'Poppins',sans-serif;display:inline-flex;align-items:center;gap:7px;background:rgba(245,184,0,.9);padding:7px 14px;border-radius:50px;font-size:12px;font-weight:600;color:var(--dark);margin-bottom:8px;backdrop-filter:blur(8px)}
-/* Image overlay title → Playfair Display 700 */
 .h-img-t{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:#fff}
-/* Image overlay sub → Poppins 400 */
 .h-img-s{font-family:'Poppins',sans-serif;font-size:12.5px;font-weight:400;color:rgba(255,255,255,.72);margin-top:4px}
 .fbdg{position:absolute;padding:12px 16px;border-radius:16px;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border:1.5px solid rgba(245,184,0,.3);display:flex;align-items:center;gap:10px;box-shadow:0 8px 30px var(--shd)}
 .fbdg.fb1{bottom:-18px;left:-30px;animation:fl1 4s ease-in-out infinite}
@@ -265,12 +256,9 @@ nav a:hover::after,nav a.act::after{transform:scaleX(1)}
 .fbdg-ic{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
 .ic-or{background:rgba(232,118,26,.12)}
 .ic-gd{background:rgba(245,184,0,.15)}
-/* Floating badge number → Playfair Display 700 */
 .fbdg-n{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--dark)}
-/* Floating badge label → Poppins 400 */
 .fbdg-l{font-family:'Poppins',sans-serif;font-size:11px;font-weight:400;color:var(--txt3)}
 .scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:4;text-align:center;animation:fU .9s ease 1.5s both}
-/* Scroll hint → Poppins 400 */
 .scroll-hint span{font-family:'Poppins',sans-serif;font-size:10px;letter-spacing:2.5px;color:var(--txt3);text-transform:uppercase;display:block;margin-bottom:8px}
 .s-wheel{width:24px;height:40px;border:1.5px solid var(--brd);border-radius:12px;margin:0 auto;display:flex;justify-content:center;padding-top:7px}
 .s-wd{width:3.5px;height:7px;border-radius:2px;background:var(--or);animation:sw 2s ease infinite}
@@ -284,9 +272,7 @@ nav a:hover::after,nav a.act::after{transform:scaleX(1)}
 .ann{background:linear-gradient(90deg,var(--bg2),var(--gd3),var(--bg2));border-top:2px solid rgba(232,118,26,.15);border-bottom:2px solid rgba(232,118,26,.15);padding:13px 0}
 .ann-in{max-width:1280px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .ann-bell{font-size:22px;animation:ring 3s ease-in-out infinite;flex-shrink:0}
-/* Announce label → Poppins 700 */
 .ann-label{font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--or);flex-shrink:0}
-/* Announce text → Poppins 400 */
 .ann-text{font-family:'Poppins',sans-serif;font-size:13.5px;font-weight:400;color:var(--txt2)}
 .ann-text a{color:var(--or);font-weight:600}
 
@@ -298,10 +284,8 @@ nav a:hover::after,nav a.act::after{transform:scaleX(1)}
 .stat-item{text-align:center;padding:52px 20px;border-right:1px solid rgba(255,255,255,.07)}
 .stat-item:last-child{border-right:none}
 .stat-em{font-size:36px;margin-bottom:12px;display:block;filter:drop-shadow(0 0 10px rgba(245,184,0,.5))}
-/* Stat number → Playfair Display 700 */
 .stat-n{font-family:'Playfair Display',serif;font-size:52px;font-weight:700;color:var(--gd2);line-height:1;display:block;margin-bottom:6px;text-shadow:0 0 30px rgba(245,184,0,.3)}
 .stat-sfx{font-size:26px;color:var(--or3)}
-/* Stat label → Poppins 500 */
 .stat-lbl{font-family:'Poppins',sans-serif;font-size:11.5px;color:rgba(255,255,255,.45);font-weight:500;letter-spacing:1.2px;text-transform:uppercase}
 
 /* ════════════════════════════════════════
@@ -315,29 +299,21 @@ nav a:hover::after,nav a.act::after{transform:scaleX(1)}
 .about-main:hover img{transform:scale(1.05)}
 .about-main-ov{position:absolute;inset:0;background:linear-gradient(0deg,rgba(28,10,0,.7) 0%,transparent 55%)}
 .about-main-txt{position:absolute;bottom:26px;left:26px;right:26px}
-/* About motto → Playfair Display 400 italic */
 .about-motto{font-family:'Playfair Display',serif;font-size:19px;font-style:italic;font-weight:400;color:var(--gd2);margin-bottom:5px}
-/* About motto sub → Poppins 400 */
 .about-motto-s{font-family:'Poppins',sans-serif;font-size:12px;font-weight:400;color:rgba(255,255,255,.65)}
 .about-float{position:absolute;top:-18px;right:-18px;background:linear-gradient(135deg,var(--or),var(--or3));color:#fff;padding:18px 22px;border-radius:20px;text-align:center;box-shadow:0 12px 40px var(--shd);animation:fl2 5s ease-in-out infinite;z-index:5;border:2px solid rgba(255,200,120,.35)}
-/* About float number → Playfair Display 700 */
 .af-n{font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:#fff;line-height:1}
-/* About float label → Poppins 500 */
 .af-l{font-family:'Poppins',sans-serif;font-size:11px;font-weight:500;color:rgba(255,255,255,.88);letter-spacing:.5px;margin-top:3px}
 .about-pts{display:flex;flex-direction:column;gap:14px;margin-top:28px}
 .apt{display:flex;gap:16px;align-items:flex-start;padding:18px 20px;background:var(--card);border-radius:16px;border:1.5px solid var(--brd);transition:all .35s;cursor:default;box-shadow:0 2px 12px rgba(232,118,26,.05)}
 .apt:hover{border-color:rgba(232,118,26,.35);transform:translateX(7px);box-shadow:0 8px 32px var(--shd)}
 .apt-ic{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,var(--or),var(--or3));display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;box-shadow:0 6px 18px var(--shd);transition:transform .35s}
 .apt:hover .apt-ic{transform:rotate(10deg) scale(1.1)}
-/* About point title → Playfair Display 700 (sub-heading) */
 .apt-t{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--dark);margin-bottom:4px}
-/* About point desc → Poppins 400 */
 .apt-d{font-family:'Poppins',sans-serif;font-size:13.5px;font-weight:400;color:var(--txt2);line-height:1.6}
 .about-stats-row{display:flex;gap:14px;margin-top:26px}
 .asr{flex:1;background:linear-gradient(135deg,var(--dark),var(--dark2));border-radius:14px;padding:18px;text-align:center}
-/* About stat number → Playfair Display 700 */
 .asr-n{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--gd2);text-shadow:0 0 20px rgba(245,184,0,.3)}
-/* About stat label → Poppins 400 */
 .asr-l{font-family:'Poppins',sans-serif;font-size:11px;font-weight:400;color:rgba(255,255,255,.45);margin-top:4px;letter-spacing:.6px}
 
 /* ════════════════════════════════════════
@@ -355,21 +331,15 @@ nav a:hover::after,nav a.act::after{transform:scaleX(1)}
 .lcard:hover .l-av{border-color:var(--gd);box-shadow:0 12px 40px var(--shd),0 0 40px rgba(245,184,0,.25);transform:scale(1.08)}
 .l-av img{width:100%;height:100%;object-fit:cover}
 .l-spin{position:absolute;inset:-5px;border-radius:50%;border:2px dashed rgba(232,118,26,.25);animation:spinring 10s linear infinite}
-/* Leader name → Playfair Display 700 */
 .l-name{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--dark);margin-bottom:3px}
-/* Leader role → Poppins 600 */
 .l-role{font-family:'Poppins',sans-serif;font-size:11.5px;color:var(--or);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
-/* Leader quote → Playfair Display 400 italic */
 .l-quote{font-family:'Playfair Display',serif;font-size:13.5px;color:var(--txt2);line-height:1.7;font-style:italic;font-weight:400}
 .lead-note{padding:36px;border-radius:22px;background:var(--card);position:relative;overflow:hidden;border:1.5px solid var(--brd);box-shadow:0 4px 24px rgba(232,118,26,.07)}
 .lead-note::before{content:'"';position:absolute;top:-16px;left:14px;font-family:'Playfair Display',serif;font-size:110px;color:rgba(232,118,26,.07);line-height:1;pointer-events:none}
-/* Lead note body → Playfair Display 400 italic */
 .ln-body{font-family:'Playfair Display',serif;font-size:17px;font-style:italic;font-weight:400;color:var(--txt2);line-height:1.75;margin-bottom:20px}
 .ln-auth{display:flex;align-items:center;gap:12px}
 .ln-av{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--or),var(--gd));display:flex;align-items:center;justify-content:center;font-size:22px;border:2px solid rgba(232,118,26,.2);flex-shrink:0}
-/* Lead note name → Poppins 700 */
 .ln-nm{font-family:'Poppins',sans-serif;font-size:14px;font-weight:700;color:var(--dark)}
-/* Lead note role → Poppins 400 */
 .ln-rl{font-family:'Poppins',sans-serif;font-size:12px;font-weight:400;color:var(--txt3)}
 
 /* ════════════════════════════════════════
@@ -384,10 +354,8 @@ nav a:hover::after,nav a.act::after{transform:scaleX(1)}
 .ci-dot{width:36px;height:36px;border-radius:50%;border:2px solid rgba(232,118,26,.25);background:var(--card);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;transition:all .35s;box-shadow:0 2px 8px rgba(0,0,0,.06)}
 .ci.act .ci-dot{border-color:var(--or);background:linear-gradient(135deg,var(--or),var(--or3));box-shadow:0 0 0 0 rgba(232,118,26,.4);animation:pdot 2s infinite}
 .ci.act .ci-em{filter:brightness(10)}
-/* Curriculum item title → Poppins 600 */
 .ci-title{font-family:'Poppins',sans-serif;font-size:15px;font-weight:600;color:var(--txt);margin-bottom:3px}
 .ci.act .ci-title{color:var(--or)}
-/* Curriculum item sub → Poppins 400 */
 .ci-sub{font-family:'Poppins',sans-serif;font-size:12.5px;font-weight:400;color:var(--txt3);line-height:1.5}
 .curr-vis{border-radius:24px;overflow:hidden;height:440px;box-shadow:0 24px 70px var(--shd),0 4px 20px rgba(0,0,0,.07);border:1px solid var(--brd);transform-style:preserve-3d;transition:transform .35s;position:relative}
 .curr-vis:hover{transform:rotateY(3deg) rotateX(-1.5deg) scale(1.01)}
@@ -395,9 +363,7 @@ nav a:hover::after,nav a.act::after{transform:scaleX(1)}
 .curr-vis:hover img{transform:scale(1.05)}
 .curr-vis-ov{position:absolute;inset:0;background:linear-gradient(0deg,rgba(28,10,0,.72) 0%,transparent 55%)}
 .curr-vis-txt{position:absolute;bottom:26px;left:26px;right:26px}
-/* Curriculum vis title → Playfair Display 700 */
 .cvt{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#fff}
-/* Curriculum vis sub → Poppins 400 */
 .cvs{font-family:'Poppins',sans-serif;font-size:13px;font-weight:400;color:rgba(255,255,255,.68);margin-top:6px}
 
 /* ════════════════════════════════════════
@@ -412,9 +378,7 @@ nav a:hover::after,nav a.act::after{transform:scaleX(1)}
 .fac-card:hover .fac-cir{border-color:var(--or);box-shadow:0 12px 36px var(--shd);transform:scale(1.1) rotate(5deg)}
 .fac-cir img{width:100%;height:100%;object-fit:cover}
 .fac-em{display:flex;align-items:center;justify-content:center;font-size:50px;background:linear-gradient(135deg,var(--bg3),var(--gd3))}
-/* Facility name → Playfair Display 700 */
 .fac-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--dark);margin-bottom:7px}
-/* Facility desc → Poppins 400 */
 .fac-desc{font-family:'Poppins',sans-serif;font-size:13px;font-weight:400;color:var(--txt2);line-height:1.6}
 .fac-navs{display:flex;gap:12px;justify-content:center;margin-top:28px}
 .fac-nb{width:46px;height:46px;border-radius:50%;border:2px solid rgba(232,118,26,.25);background:var(--card);color:var(--or);font-size:20px;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 12px rgba(0,0,0,.07)}
@@ -432,7 +396,6 @@ nav a:hover::after,nav a.act::after{transform:scaleX(1)}
 .vid-ov{position:absolute;inset:0;background:linear-gradient(0deg,rgba(28,10,0,.65),rgba(28,10,0,.3));display:flex;align-items:center;justify-content:center}
 .play{width:72px;height:72px;border-radius:50%;background:rgba(232,118,26,.9);display:flex;align-items:center;justify-content:center;font-size:26px;color:#fff;box-shadow:0 0 0 14px rgba(232,118,26,.18),0 0 0 28px rgba(232,118,26,.07);transition:.35s}
 .vid-box:hover .play{transform:scale(1.12)}
-/* Video caption → Playfair Display 700 */
 .vid-caption{font-family:'Playfair Display',serif;position:absolute;bottom:18px;left:18px;font-size:17px;font-weight:700;color:#fff}
 .t-cards{display:flex;flex-direction:column;gap:14px}
 .tcard{padding:22px 24px;border-radius:18px;background:var(--card);border:1.5px solid var(--brd);transition:all .38s cubic-bezier(.34,1.56,.64,1);transform-style:preserve-3d;cursor:default;position:relative;overflow:hidden;box-shadow:0 3px 16px rgba(232,118,26,.05)}
@@ -440,13 +403,10 @@ nav a:hover::after,nav a.act::after{transform:scaleX(1)}
 .tcard:hover{border-color:rgba(232,118,26,.3);transform:translateX(8px) rotateY(1.5deg) scale(1.01);box-shadow:0 14px 44px var(--shd)}
 .tstars{display:flex;gap:2px;margin-bottom:9px}
 .tstars span{color:var(--gd);font-size:14px}
-/* Testimonial quote → Playfair Display 400 italic */
 .tq{font-family:'Playfair Display',serif;font-size:13.5px;color:var(--txt2);line-height:1.72;font-style:italic;font-weight:400;margin-bottom:14px}
 .tauth{display:flex;align-items:center;gap:11px}
 .tav{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--or),var(--gd));display:flex;align-items:center;justify-content:center;font-size:19px;border:2px solid rgba(232,118,26,.2);flex-shrink:0}
-/* Testimonial name → Poppins 600 */
 .tname{font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;color:var(--dark)}
-/* Testimonial role → Poppins 400 */
 .trole{font-family:'Poppins',sans-serif;font-size:11.5px;font-weight:400;color:var(--txt3)}
 
 /* ════════════════════════════════════════
@@ -455,11 +415,8 @@ nav a:hover::after,nav a.act::after{transform:scaleX(1)}
 .cta-sect{padding:90px 0;position:relative;overflow:hidden;text-align:center;background:linear-gradient(135deg,var(--or) 0%,var(--or3) 45%,var(--gd) 100%)}
 .cta-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
 .cta-inner{position:relative;z-index:2;max-width:740px;margin:0 auto;padding:0 20px}
-/* CTA badge → Poppins 700 */
 .cta-badge{font-family:'Poppins',sans-serif;display:inline-block;background:rgba(255,255,255,.22);border:1.5px solid rgba(255,255,255,.45);color:#fff;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:7px 20px;border-radius:50px;margin-bottom:22px;backdrop-filter:blur(10px)}
-/* CTA title → Playfair Display 700 */
 .cta-title{font-family:'Playfair Display',serif;font-size:clamp(30px,5vw,60px);font-weight:700;color:#fff;line-height:1.1;margin-bottom:16px;text-shadow:0 2px 20px rgba(0,0,0,.15)}
-/* CTA desc → Poppins 400 */
 .cta-desc{font-family:'Poppins',sans-serif;font-size:17px;font-weight:400;color:rgba(255,255,255,.9);line-height:1.72;margin-bottom:36px}
 .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 
@@ -472,73 +429,52 @@ nav a:hover::after,nav a.act::after{transform:scaleX(1)}
 .ct-card{display:flex;gap:15px;align-items:flex-start;padding:18px 20px;border-radius:16px;background:var(--card);border:1.5px solid var(--brd);transition:all .32s;cursor:default;box-shadow:0 2px 12px rgba(232,118,26,.05)}
 .ct-card:hover{border-color:rgba(232,118,26,.3);transform:translateX(6px);box-shadow:0 8px 30px var(--shd)}
 .ct-ic{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,var(--or),var(--or3));display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;box-shadow:0 5px 16px var(--shd)}
-/* Contact label → Poppins 600 */
 .ct-lb{font-family:'Poppins',sans-serif;font-size:11px;font-weight:600;color:var(--txt3);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
-/* Contact value → Poppins 500 */
 .ct-vl{font-family:'Poppins',sans-serif;font-size:14px;font-weight:500;color:var(--dark);line-height:1.6}
 .ct-vl a{color:var(--or);text-decoration:none}
-/* Form box */
 .form-box{background:var(--card);border-radius:24px;padding:40px;box-shadow:0 14px 55px var(--shd),0 2px 16px rgba(0,0,0,.05);border:1.5px solid var(--brd)}
-/* Form title → Playfair Display 700 */
 .form-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--dark);margin-bottom:26px}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
 .fg{margin-bottom:14px}
-/* Form label → Poppins 600 */
 .flb{font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;color:var(--txt3);display:block;margin-bottom:6px}
-/* Form inputs → Poppins 400 */
 .finp,.fsel,.fta{width:100%;padding:12px 15px;border-radius:11px;border:1.5px solid var(--brd);background:var(--bg);color:var(--txt);font-family:'Poppins',sans-serif;font-size:14px;font-weight:400;outline:none;transition:.22s}
 .finp:focus,.fsel:focus,.fta:focus{border-color:var(--or);background:var(--card);box-shadow:0 0 0 3.5px rgba(232,118,26,.12)}
 .finp::placeholder,.fta::placeholder{color:var(--txt3);opacity:.6}
 .fsel{color:var(--txt2)}
 .fta{resize:vertical;min-height:96px}
-/* Submit button → Poppins 600 UPPERCASE */
 .fsub{width:100%;margin-top:18px;background:linear-gradient(135deg,var(--or),var(--or3));color:#fff;border:none;padding:14px 26px;border-radius:11px;font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;transition:all .3s;box-shadow:0 6px 24px var(--shd);display:flex;align-items:center;justify-content:center;gap:8px}
 .fsub:hover{transform:translateY(-2px);box-shadow:0 12px 36px var(--shd)}
 
 /* ════════════════════════════════════════
    FOOTER
 ════════════════════════════════════════ */
-footer{
-  background:linear-gradient(145deg,#1C0A00 0%,#2E1200 40%,#3D1A00 70%,#1C0A00 100%);
-  padding:70px 0 0;position:relative;overflow:hidden;
-}
+footer{background:linear-gradient(145deg,#1C0A00 0%,#2E1200 40%,#3D1A00 70%,#1C0A00 100%);padding:70px 0 0;position:relative;overflow:hidden;}
 .foot-grid{max-width:1280px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;position:relative;z-index:2}
 .foot-brand-row{display:flex;align-items:center;gap:13px;margin-bottom:16px}
 .foot-logo{width:54px;height:54px;border-radius:50%;overflow:hidden;border:2px solid rgba(245,184,0,.3);background:var(--gd3);flex-shrink:0}
-/* Footer school name → Playfair Display 700 */
 .foot-sn{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#fff}
-/* Footer board tag → Poppins 400 */
 .foot-st{font-family:'Poppins',sans-serif;font-size:10px;font-weight:400;color:rgba(255,255,255,.75)}
-/* Footer desc → Poppins 400 */
 .foot-desc{font-family:'Poppins',sans-serif;font-size:13.5px;font-weight:400;color:rgba(255,255,255,.85);line-height:1.78;margin-bottom:20px}
-/* Footer motto/tagline → Playfair Display 400 italic */
 .foot-motto{font-family:'Playfair Display',serif;display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-style:italic;font-weight:400;color:var(--gd2);background:rgba(245,184,0,.08);border:1px solid rgba(245,184,0,.18);padding:7px 14px;border-radius:50px}
 .foot-soc{display:flex;gap:7px;margin-top:18px}
-/* Social → Poppins 600 */
 .fsoc{font-family:'Poppins',sans-serif;width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:600;text-decoration:none;transition:.22s}
 .fsoc:hover{background:var(--or);color:#fff;transform:translateY(-2px)}
-/* Footer column heading → Poppins 600 */
 .foot-col-h{font-family:'Poppins',sans-serif;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--or4);margin-bottom:16px;display:flex;align-items:center;gap:6px}
 .foot-col-h::before{content:'';width:12px;height:2px;background:var(--or4);border-radius:2px}
 .foot-ul{list-style:none;display:flex;flex-direction:column;gap:9px}
-/* Footer links → Poppins 400 */
 .foot-ul a{font-family:'Poppins',sans-serif;font-size:13.5px;font-weight:400;color:#fff;text-decoration:none;transition:all .22s;display:flex;align-items:center;gap:6px}
 .foot-ul a::before{content:'›';color:var(--or4);font-size:15px;transition:color .22s}
 .foot-ul a:hover{color:var(--or3);padding-left:5px}
 .foot-ul a:hover::before{color:var(--or3)}
 .nl-row{display:flex;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.12);margin-top:16px}
-/* Newsletter input → Poppins 400 */
 .nl-inp{flex:1;padding:11px 14px;background:rgba(255,255,255,.06);border:none;color:#fff;font-family:'Poppins',sans-serif;font-size:13px;font-weight:400;outline:none}
 .nl-inp::placeholder{color:rgba(255,255,255,.3)}
-/* Newsletter button → Poppins 600 */
 .nl-btn{background:linear-gradient(135deg,var(--or),var(--gd));border:none;color:#fff;padding:11px 18px;font-family:'Poppins',sans-serif;font-weight:600;font-size:14px;cursor:pointer}
 .foot-acts{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
-/* Footer action buttons → Poppins 600 UPPERCASE */
 .fa{font-family:'Poppins',sans-serif;padding:8px 14px;border-radius:9px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:5px;transition:.22s}
 .fa1{background:linear-gradient(135deg,var(--or),var(--or3));color:#fff;border:none}
 .fa2{background:transparent;color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.15)}
 .fa1:hover,.fa2:hover{transform:translateY(-2px)}
-/* Footer bottom → Poppins 400 */
 .foot-bot{border-top:1px solid rgba(255,255,255,.07);padding:18px 20px;max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;position:relative;z-index:2}
 .foot-copy{font-family:'Poppins',sans-serif;font-size:12px;font-weight:400;color:rgba(255,255,255,.75)}
 .foot-bl{display:flex;gap:16px;flex-wrap:wrap}
@@ -546,18 +482,10 @@ footer{
 .foot-bl a:hover{color:var(--gd2)}
 
 /* ════════════════════════════════════════
-   SCROLL TOP BUTTON
-════════════════════════════════════════ */
-.stbtn{position:fixed;bottom:92px;right:16px;width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--or),var(--gd));color:#fff;border:none;cursor:pointer;font-size:16px;box-shadow:0 7px 22px var(--shd);opacity:0;transform:translateY(16px);transition:all .3s;z-index:490;display:flex;align-items:center;justify-content:center}
-.stbtn.vis{opacity:1;transform:translateY(0)}
-.stbtn:hover{transform:translateY(-3px) scale(1.08)}
-
-/* ════════════════════════════════════════
    MOBILE CTA BAR
 ════════════════════════════════════════ */
 .mob-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:480;background:rgba(255,253,248,.97);backdrop-filter:blur(10px);padding:12px 16px;border-top:1px solid var(--brd);box-shadow:0 -4px 20px rgba(232,118,26,.1);gap:10px}
 @media(max-width:768px){.mob-cta{display:flex}}
-/* Mobile CTA → Poppins 600 */
 .mob-cta a,.mob-cta button{flex:1;padding:12px 8px;border-radius:10px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;text-align:center;text-decoration:none;border:none;cursor:pointer;transition:.22s;display:flex;align-items:center;justify-content:center;gap:6px}
 .mcta-1{background:linear-gradient(135deg,var(--or),var(--or3));color:#fff;box-shadow:0 4px 16px var(--shd)}
 .mcta-2{background:transparent;color:var(--or);border:2px solid var(--or)!important}
@@ -577,13 +505,9 @@ footer{
 .page-banner{background:linear-gradient(135deg,var(--dark) 0%,var(--dark2) 60%,rgba(232,118,26,.12) 100%);padding:80px 20px 60px;position:relative;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.06)}
 .page-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 80% 50%,rgba(232,118,26,.08),transparent);pointer-events:none}
 .pb-inner{max-width:1280px;margin:0 auto;position:relative;z-index:2}
-/* Page banner chip → Poppins 700 */
 .pb-chip{font-family:'Poppins',sans-serif;display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gd2);background:rgba(245,184,0,.1);border:1px solid rgba(245,184,0,.25);border-radius:50px;padding:6px 16px;margin-bottom:16px}
-/* Page banner title → Playfair Display 700 */
 .pb-title{font-family:'Playfair Display',serif;font-size:clamp(32px,6vw,58px);font-weight:700;color:#fff;line-height:1.15;margin-bottom:12px}
-/* Page banner sub → Poppins 400 */
 .pb-sub{font-family:'Poppins',sans-serif;font-size:15px;font-weight:400;color:rgba(255,255,255,.5);max-width:600px;line-height:1.7;margin-bottom:20px}
-/* Breadcrumb → Poppins 400 */
 .breadcrumb{font-family:'Poppins',sans-serif;display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.35)}
 .breadcrumb a{color:rgba(255,255,255,.5);text-decoration:none;font-weight:600;transition:.2s}
 .breadcrumb a:hover{color:var(--gd2)}
@@ -593,7 +517,6 @@ footer{
    NAVBAR DROPDOWNS
 ════════════════════════════════════════ */
 .nav-item{position:relative;display:inline-flex;align-items:center}
-/* Nav link → Poppins 500 */
 .nav-link{font-family:'Poppins',sans-serif;font-size:13.5px;font-weight:500;color:var(--txt2);padding:8px 11px;border-radius:8px;text-decoration:none;transition:all .2s;position:relative;display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
 .nav-link::after{content:'';position:absolute;bottom:3px;left:11px;right:11px;height:2px;background:linear-gradient(90deg,var(--or),var(--gd));border-radius:2px;transform:scaleX(0);transition:.25s;transform-origin:center}
 .nav-link:hover,.nav-link.act{color:var(--or)}
@@ -604,18 +527,17 @@ footer{
 .nav-dropdown.open{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0)}
 .nav-item:first-child .nav-dropdown{left:0;transform:translateX(0) translateY(-8px)}
 .nav-item:first-child .nav-dropdown.open{transform:translateX(0) translateY(0)}
-/* Dropdown item → Poppins 600 */
 .nd-item{font-family:'Poppins',sans-serif;display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;text-decoration:none;font-size:13.5px;font-weight:600;color:var(--txt2);transition:all .18s}
 .nd-item:hover{background:var(--or5);color:var(--or2)}
 .nd-em{width:28px;height:28px;border-radius:8px;background:var(--or5);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;transition:.18s}
 .nd-item:hover .nd-em{background:rgba(232,118,26,.15)}
 
-/* ── CHAT BUTTON ── */
-.chat-btn { background:linear-gradient(135deg,#E8761A,#F5B800) !important; }
-.chat-tip { color:#E8761A !important; background:var(--card); }
-.cp-send  { background:linear-gradient(135deg,#E8761A,#F5B800) !important; }
-.cp-dot   { background:#E8761A !important; }
-.cp-status{ color:#E8761A !important; }
+/* ── CHAT BUTTON OVERRIDES ── */
+.chat-btn{background:linear-gradient(135deg,#E8761A,#F5B800)!important}
+.chat-tip{color:#E8761A!important;background:var(--card)}
+.cp-send{background:linear-gradient(135deg,#E8761A,#F5B800)!important}
+.cp-dot{background:#E8761A!important}
+.cp-status{color:#E8761A!important}
 
 /* ── Hostel dropdown highlight ── */
 .nd-divider{height:1px;background:var(--brd);margin:6px 4px}
@@ -627,7 +549,7 @@ footer{
 .nd-hostel:hover{background:linear-gradient(135deg,var(--or2),var(--or),var(--or3))!important;transform:translateY(-2px) scale(1.01);box-shadow:0 10px 28px rgba(232,118,26,.5)!important}
 
 /* ════════════════════════════════════════
-   RESPONSIVE
+   RESPONSIVE — TABLET (max 1100px)
 ════════════════════════════════════════ */
 @media(max-width:1100px){
   .hero-inner{grid-template-columns:1fr;gap:0}
@@ -639,43 +561,9 @@ footer{
   .fac-card{flex:0 0 calc(33.33% - 14px)}
   .curr-lay{grid-template-columns:1fr}
 }
-@media(max-width:768px){
-  nav,.hdr-cta{display:none}
-  .menu-btn{display:flex}
-  .hero-inner{padding:80px 16px 60px}
-  .s-cont{padding:60px 16px}
-  .stats-grid{grid-template-columns:repeat(2,1fr)}
-  .stat-item{padding:40px 16px}
-  .stat-n{font-size:40px}
-  .fac-card{flex:0 0 calc(50% - 10px)}
-  .about-grid,.testi-lay,.contact-grid,.lead-grid{grid-template-columns:1fr}
-  .foot-grid{grid-template-columns:1fr;gap:28px;padding:0 16px}
-  .foot-bot{padding:16px}
-  .frow{grid-template-columns:1fr}
-  .cta-btns{flex-direction:column;align-items:center}
-  .hero-btns{flex-direction:column;align-items:flex-start}
-  .hero-trust{gap:12px}
-  .tb-social{display:none}
-  .tb-contacts{gap:10px}
-}
-@media(max-width:480px){
-  .hero-h1{font-size:32px}
-  .sec-title{font-size:26px}
-  .fac-card{flex:0 0 100%}
-  .stats-grid{grid-template-columns:1fr 1fr}
-  .stat-item{padding:32px 12px}
-  .stat-n{font-size:36px}
-  .hero-trust .tr-div:last-of-type{display:none}
-  .form-box{padding:24px 16px}
-  .about-stats-row{gap:8px}
-  .lcard,.lead-note{padding:20px}
-}
-@media(max-width:360px){
-  .hero-h1{font-size:28px}
-}
 
 /* ════════════════════════════════════════
-   TABLET (max 1024px)
+   RESPONSIVE — TABLET (max 1024px)
 ════════════════════════════════════════ */
 @media(max-width:1024px){
   .hero-inner{grid-template-columns:1fr;padding:80px 20px 60px;gap:40px}
@@ -698,9 +586,11 @@ footer{
 }
 
 /* ════════════════════════════════════════
-   MOBILE (max 768px)
+   RESPONSIVE — MOBILE (max 768px)
 ════════════════════════════════════════ */
 @media(max-width:768px){
+  nav,.hdr-cta{display:none}
+  .menu-btn{display:flex}
   .tb-inner{flex-direction:column;align-items:flex-start;gap:6px;padding:8px 16px}
   .tb-contacts{gap:8px;flex-wrap:wrap;width:100%}
   .tb-c{font-size:11px}
@@ -789,18 +679,21 @@ footer{
   .page-banner{padding:60px 16px 40px}
   .pb-title{font-size:clamp(26px,7vw,40px)}
   .pb-sub{font-size:13px}
-  .stbtn{bottom:80px;width:40px;height:40px;font-size:14px}
+  /* ── Floats on mobile — above mob-cta bar (height ~60px) ── */
   .wa-float{left:12px;bottom:72px}
   .wa-btn{width:50px;height:50px}
+  .wa-tip{font-size:9px}
   .chat-float{right:12px;bottom:72px}
   .chat-btn{width:46px;height:46px;font-size:20px}
-  .wa-tip,.chat-tip{font-size:9px}
+  .chat-tip{font-size:9px}
+  /* stbtn mobile: 72 + 46(btn) + 16(tip) + 12(gap) = 146px */
+  .stbtn{right:14px;bottom:146px;width:38px;height:38px;font-size:15px}
   .mob-cta{padding:10px 12px}
   .mob-cta a,.mob-cta button{font-size:12px;padding:10px 6px;border-radius:9px}
 }
 
 /* ════════════════════════════════════════
-   SMALL MOBILE (max 480px)
+   RESPONSIVE — SMALL MOBILE (max 480px)
 ════════════════════════════════════════ */
 @media(max-width:480px){
   .tb-c:nth-child(2){display:none}
@@ -834,7 +727,7 @@ footer{
 }
 
 /* ════════════════════════════════════════
-   VERY SMALL (max 360px)
+   RESPONSIVE — VERY SMALL (max 360px)
 ════════════════════════════════════════ */
 @media(max-width:360px){
   .hdr-inner{height:58px;padding:0 10px}
@@ -842,7 +735,7 @@ footer{
   .logo-text .sn{font-size:12px}
   .hero-h1{font-size:24px}
   .sec-title{font-size:21px}
-  .stbtn{display:none}
+  .stbtn{right:12px;bottom:80px;width:36px;height:36px;font-size:14px}
   .stat-n{font-size:28px}
   .mob-cta a,.mob-cta button{font-size:11px;gap:4px}
 }

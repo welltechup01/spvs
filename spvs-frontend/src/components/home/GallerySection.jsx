@@ -58,7 +58,7 @@ export default function GallerySection() {
         <div className="gallery-header rv">
           <div>
             <div className="chip"><span className="chip-dot"></span>Gallery</div>
-            <h2 className="sec-title">Life at <span className="hl">SPVS</span></h2>
+            <h2 className="sec-title">Life at <span className="hl">SPV</span></h2>
             <div className="s-bar" style={{marginBottom:0}}></div>
           </div>
           <Link to="/gallery" className="btn-out gallery-view-btn">View All Photos →</Link>

@@ -7,7 +7,7 @@ const DEFAULT_DATA = {
     { key: 'School No.',                value: '70178' },
     { key: 'UDISE Code',                value: '09500707504' },
     { key: 'Year of Establishment',     value: '1987' },
-    { key: 'Principal Name',            value: 'Mrs. Pooja Agarwal' },
+    { key: 'Principal Name',            value: 'Mrs. Puja Agarwal' },
     { key: 'Principal Qualification',   value: 'M.A. B.Ed' },
     { key: 'Email',                     value: 'spvbrh@gmail.com' },
     { key: 'Contact No.',               value: '+91 9198783830' },
@@ -44,7 +44,7 @@ const DEFAULT_DATA = {
   ],
   staff: [
     { key: 'Total Teaching Staff',                     value: '64 (14 PGT + 20 TGT + 30 PRT)' },
-    { key: 'Principal',                                value: 'Mrs. Pooja Agarwal — M.A., B.Ed' },
+    { key: 'Principal',                                value: 'Mrs. Puja Agarwal — M.A., B.Ed' },
     { key: 'Vice Principal',                           value: 'Mr. Bhikha Ram Tripathi — M.Sc., B.Ed' },
     { key: 'No. of Administrative Staff',              value: '8' },
     { key: 'No. of Non-Teaching Staff',                value: '12' },

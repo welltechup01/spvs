@@ -4,7 +4,7 @@ import { FaNewspaper, FaCheckCircle, FaFileAlt, FaTimesCircle, FaPencilAlt, FaTr
 
 var CATS = ['Academic','Achievement','Event','Holiday','Competition','Notice','Sports','Admission','General']
 var CAT_CLR = { Academic:'#6C3FC5', Achievement:'#E8761A', Event:'#22a35a', Notice:'#C45F0A', Sports:'#E8761A', Admission:'#6C3FC5', Holiday:'#22a35a', Competition:'#E94F37', General:'#B87832' }
-var EMPTY = { title:'', category:'Academic', status:'Published', author:'SPVS Admin', excerpt:'', content:'', image:'' }
+var EMPTY = { title:'', category:'Academic', status:'Published', author:'SPV Admin', excerpt:'', content:'', image:'' }
 
 var s = {
   card:  { background:'#FFFFFF', borderRadius:'16px', border:'1.5px solid rgba(232,118,26,.12)', padding:'22px', boxShadow:'0 4px 16px rgba(232,118,26,.06)' },
@@ -51,7 +51,7 @@ export default function ManageBlogsPage() {
 
   function openAdd()   { setCurrent(EMPTY); setImgFile(null); setModal('add') }
   function openEdit(p) {
-    setCurrent({ title:p.title, category:p.category||'Academic', status:p.published?'Published':'Draft', author:p.author||'SPVS Admin', excerpt:p.excerpt||'', content:p.content||'', image:p.image||'' })
+    setCurrent({ title:p.title, category:p.category||'Academic', status:p.published?'Published':'Draft', author:p.author||'SPV Admin', excerpt:p.excerpt||'', content:p.content||'', image:p.image||'' })
     setEditId(p._id); setImgFile(null); setModal('edit')
   }
   function openDel(id) { setDelId(id); setModal('delete') }
@@ -223,7 +223,7 @@ export default function ManageBlogsPage() {
                       </td>
                       <td style={{padding:'10px 12px',maxWidth:'220px'}}>
                         <div style={{fontSize:'13px',fontWeight:'700',color:'#1C0A00',overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{p.title}</div>
-                        <div style={{fontSize:'11px',color:'#B87832',marginTop:'2px'}}>{p.author||'SPVS Admin'}</div>
+                        <div style={{fontSize:'11px',color:'#B87832',marginTop:'2px'}}>{p.author||'SPV Admin'}</div>
                       </td>
                       <td style={{padding:'10px 12px'}}><span style={{padding:'3px 10px',borderRadius:'20px',fontSize:'11px',fontWeight:'800',background:cc+'15',color:cc,whiteSpace:'nowrap'}}>{p.category}</span></td>
                       <td style={{padding:'10px 12px'}}>

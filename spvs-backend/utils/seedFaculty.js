@@ -8,7 +8,7 @@ const Faculty  = require('../models/Faculty')
 
 const FACULTY = [
   { name:'Sh. Awadhesh Narayan Agarwal', role:'Director',       dept:'Administration',    qual:'School Management', exp:'',       phone:'+91 9198783830', email:'', status:'Active', order:1 },
-  { name:'Mrs. Pooja Agarwal',           role:'Principal',      dept:'Administration',    qual:'M.A., B.Ed',        exp:'22 yrs', phone:'+91 8318842325', email:'', status:'Active', order:2 },
+  { name:'Mrs. Puja Agarwal',           role:'Principal',      dept:'Administration',    qual:'M.A., B.Ed',        exp:'22 yrs', phone:'+91 8318842325', email:'', status:'Active', order:2 },
   { name:'Mr. Bhikha Ram Tripathi',      role:'Vice Principal', dept:'Science',           qual:'M.Sc., B.Ed',       exp:'18 yrs', phone:'+91 8318600231', email:'', status:'Active', order:3 },
   { name:'Mrs. Neena Chhabra',           role:'PRT',            dept:'English',           qual:'M.A., B.Ed',        exp:'',       phone:'+91 7007884235', email:'', status:'Active', order:4 },
   { name:'Mr. K.K. Srivastava',          role:'PGT',            dept:'Mathematics',       qual:'M.Sc., LT',         exp:'',       phone:'', email:'', status:'Active', order:5 },

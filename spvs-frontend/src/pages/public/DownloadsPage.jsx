@@ -18,7 +18,7 @@ export default function DownloadsPage() {
             <FaFileAlt size={12}/> Downloads
           </div>
           <h1 className="pb-title">Downloads & <span style={{color:'var(--gd2)',fontStyle:'italic'}}>Documents</span></h1>
-          <p className="pb-sub">Admission forms, fee structure, syllabus, circulars and all official SPVS documents in one place</p>
+          <p className="pb-sub">Admission forms, fee structure, syllabus, circulars and all official SPV documents in one place</p>
           <div className="breadcrumb">
             <Link to="/">Home</Link><span>›</span>
             <span className="bc-cur">Downloads</span>

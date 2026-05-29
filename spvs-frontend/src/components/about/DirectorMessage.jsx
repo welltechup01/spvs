@@ -215,7 +215,7 @@ function CardB({ photo, emoji, name, role, phone, msgTitle, salutation, paragrap
 
 const LEADERS = [
   {
-    photo: null, emoji: "👔",
+    photo: "/images/Director.webp",
     name: "Sh. Awadhesh Narayan Agarwal",
     role: "Director & Manager",
     phone: "+91 9198783830",

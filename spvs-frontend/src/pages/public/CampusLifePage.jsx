@@ -101,7 +101,7 @@ export default function CampusLifePage() {
               <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:'14px',marginBottom:'28px'}}>
                 <div>
                   <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:'26px',fontWeight:'700',color:'var(--dark)',margin:'0 0 4px'}}>Current <span style={{color:'var(--or)',fontStyle:'italic'}}>Openings</span></h2>
-                  <div style={{fontSize:'13px',color:'var(--txt2)'}}>Join our team of dedicated educators at SPVS</div>
+                  <div style={{fontSize:'13px',color:'var(--txt2)'}}>Join our team of dedicated educators at SPV</div>
                 </div>
                 <div style={{display:'flex',gap:'6px'}}>
                   {filters.map(function(f){

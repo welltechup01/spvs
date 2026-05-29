@@ -93,7 +93,7 @@ export default function AdminLoginPage() {
           </form>
 
           <div style={{marginTop:'18px',padding:'12px',borderRadius:'10px',background:'#FFF6EA',border:'1px solid rgba(232,118,26,.12)',textAlign:'center'}}>
-            <div style={{fontSize:'11px',color:'#B87832',fontWeight:'600'}}>Secure Admin Access · SPVS 2026</div>
+            <div style={{fontSize:'11px',color:'#B87832',fontWeight:'600'}}>Secure Admin Access · SPV 2026</div>
           </div>
         </div>
 

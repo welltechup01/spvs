@@ -71,7 +71,7 @@ export default function VisionMissionFull() {
           <div className="chip"><span className="chip-dot"/>Our Purpose</div>
           <h2 className="sec-title">Vision, Mission <span className="hl2">&amp; Values</span></h2>
           <div className="s-bar" style={{margin:'0 auto 16px'}} />
-          <p className="s-desc" style={{margin:'0 auto',textAlign:'center'}}>The principles that have guided SPVS for over 37 years.</p>
+          <p className="s-desc" style={{margin:'0 auto',textAlign:'center'}}>The principles that have guided SPV for over 37 years.</p>
         </div>
 
         <div className="vm-cards" style={{marginBottom:'32px'}}>
@@ -106,7 +106,7 @@ export default function VisionMissionFull() {
         {/* Core Values heading */}
         <div ref={valHdRef} style={{textAlign:'center',marginBottom:'28px'}}>
           <h3 style={{fontFamily:"'Playfair Display',serif",fontSize:'26px',fontWeight:'700',color:'#1C0A00',margin:'0 0 8px'}}>Core Values</h3>
-          <p style={{fontSize:'14px',color:'#7A4010',margin:0}}>The pillars that define every SPVS student's journey</p>
+          <p style={{fontSize:'14px',color:'#7A4010',margin:0}}>The pillars that define every SPV student's journey</p>
         </div>
 
         {/* Values grid */}

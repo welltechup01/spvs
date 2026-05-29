@@ -56,7 +56,7 @@ export default function Playground({ embedded = false }) {
             <div className="pg-hero" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'24px',alignItems:'center'}}>
               <div>
                 <div style={{fontFamily:"'Playfair Display',serif",fontSize:'26px',fontWeight:'700',color:'#fff',marginBottom:'12px',lineHeight:'1.3'}}>
-                  Sports at SPVS — <span style={{color:'var(--gd2)'}}>Beyond the Classroom</span>
+                  Sports at SPV — <span style={{color:'var(--gd2)'}}>Beyond the Classroom</span>
                 </div>
                 <p style={{fontSize:'14px',color:'rgba(255,255,255,.55)',lineHeight:'1.75',marginBottom:'18px'}}>
                   Our sprawling 10-acre campus provides ample space for all major sports. Physical education is a core part of our curriculum — we believe a healthy body builds a healthy mind.

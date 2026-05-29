@@ -82,7 +82,7 @@ export default function AdminLayout({ children }) {
           </div>
           {(isDrawer || !collapsed) && (
             <div style={{overflow:'hidden',whiteSpace:'nowrap'}}>
-              <div style={{fontFamily:"'Playfair Display',serif",fontSize:'13.5px',fontWeight:'700',color:'#FFCF40',lineHeight:'1.2'}}>SPVS Admin</div>
+              <div style={{fontFamily:"'Playfair Display',serif",fontSize:'13.5px',fontWeight:'700',color:'#FFCF40',lineHeight:'1.2'}}>SPV Admin</div>
               <div style={{fontSize:'9px',color:'rgba(255,207,64,.38)',fontWeight:'600',letterSpacing:'1px',textTransform:'uppercase',marginTop:'2px'}}>Management Portal</div>
             </div>
           )}
