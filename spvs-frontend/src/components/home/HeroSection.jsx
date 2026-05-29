@@ -196,7 +196,7 @@ export default function HeroSection() {
 
           <div className="hero-btns">
             <Link to="/contact" className="btn-or">
-              {admOpen ? 'Admission Inquiry' : '📋 Contact Us →'}
+              {admOpen ? 'Admission Inquiry' : ' Contact Us →'}
             </Link>
             <Link to="/academics?tab=fees" className="btn-out">Fee Structure</Link>
           </div>
@@ -292,7 +292,7 @@ export default function HeroSection() {
 
         <div className="hm-btns">
           <Link to="/contact" className="btn-or hm-btn">
-            {admOpen ? '📋 Admission Inquiry' : '📋 Contact Us'}
+            {admOpen ? ' Admission Inquiry' : ' Contact Us'}
           </Link>
           <Link to="/academics?tab=fees" className="btn-out hm-btn">
             Fee Structure
