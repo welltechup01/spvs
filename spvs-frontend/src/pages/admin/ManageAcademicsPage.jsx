@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { academicsAPI } from '../../api'
 import {
-  FaSchool, FaMoneyBillWave, FaBook, FaFileAlt, FaUpload, FaDownload,
+  FaSchool, FaBook, FaFileAlt, FaUpload, FaDownload,
   FaTrash, FaCheckCircle, FaExclamationTriangle, FaSave, FaSpinner,
   FaTrophy, FaBullseye, FaClipboardList,
 } from 'react-icons/fa'
@@ -28,14 +28,6 @@ var INIT_CLASSES = [
   { id:14, name:'Class XI',    age:'16–17 yrs', students:'90', sections:'3' },
   { id:15, name:'Class XII',   age:'17–18 yrs', students:'88', sections:'3' },
 ]
-var INIT_FEE = [
-  { id:1, category:'Play Group – KG',          tuition:'800',  annual:'2500', admission:'3000', transport:'1200' },
-  { id:2, category:'Class I – V',              tuition:'1000', annual:'3000', admission:'4000', transport:'1200' },
-  { id:3, category:'Class VI – VIII',          tuition:'1200', annual:'3500', admission:'5000', transport:'1200' },
-  { id:4, category:'Class IX – X',             tuition:'1400', annual:'4000', admission:'6000', transport:'1200' },
-  { id:5, category:'Class XI – XII (Science)', tuition:'1600', annual:'5000', admission:'7000', transport:'1200' },
-  { id:6, category:'Class XI – XII (Com/Hum)', tuition:'1500', annual:'4500', admission:'7000', transport:'1200' },
-]
 var INIT_CURRICULUM = {
   cbseNote:    'Sant Pathik Vidyalaya follows the CBSE curriculum from Play Group to Class XII.',
   examPattern: 'Classes I–VIII: CCE. Classes IX–XII: As per CBSE Board examination pattern.',
@@ -43,7 +35,9 @@ var INIT_CURRICULUM = {
   achievements:['100% Board Results (2024-25)','12 District Level Sports Medals','State Level Science Olympiad Winners','Best School Award — Bahraich 2023'],
 }
 var SYLLABUS_LEVELS = ['Pre-Primary (PG – UKG)','Primary (Class I – V)','Middle (Class VI – VIII)','Secondary (Class IX – X)','Science Stream (Class XI – XII)','Commerce Stream (Class XI – XII)','Humanities Stream (Class XI – XII)']
-var TABS = ['Streams (XI-XII)', 'Classes & Sections', 'Fee Structure', 'Curriculum Info', 'Syllabus Upload']
+
+// Fee Structure tab removed — fees are static in FeeStructure.jsx
+var TABS = ['Streams (XI-XII)', 'Classes & Sections', 'Curriculum Info', 'Syllabus Upload']
 
 var s = {
   card:  { background:'#FFFFFF', borderRadius:'16px', border:'1.5px solid rgba(232,118,26,.12)', boxShadow:'0 2px 12px rgba(232,118,26,.06)' },
@@ -54,7 +48,6 @@ var s = {
 
 function dbToStreams(arr) { return arr.map(function(s, i) { return {...s, id: i+1} }) }
 function dbToClasses(arr) { return arr.map(function(c, i) { return {...c, id: i+1} }) }
-function dbToFees(arr)    { return arr.map(function(f, i) { return {...f, id: i+1} }) }
 
 function SyllabusRow({ level, syllabuses, uploading, onUpload, onDelete }) {
   var existing    = syllabuses.find(function(s) { return s.level === level })
@@ -84,7 +77,6 @@ export default function ManageAcademicsPage() {
   var [tab,        setTab]        = useState('Streams (XI-XII)')
   var [streams,    setStreams]    = useState(INIT_STREAMS)
   var [classes,    setClasses]    = useState(INIT_CLASSES)
-  var [fees,       setFees]       = useState(INIT_FEE)
   var [curr,       setCurr]       = useState(INIT_CURRICULUM)
   var [syllabuses, setSyllabuses] = useState([])
   var [saved,      setSaved]      = useState(false)
@@ -100,9 +92,9 @@ export default function ManageAcademicsPage() {
         var d = res.data
         if (d.streams    && d.streams.length)    setStreams(dbToStreams(d.streams))
         if (d.classes    && d.classes.length)    setClasses(dbToClasses(d.classes))
-        if (d.fees       && d.fees.length)       setFees(dbToFees(d.fees))
         if (d.curriculum) setCurr(d.curriculum)
         if (d.syllabuses) setSyllabuses(d.syllabuses)
+        // d.fees intentionally ignored — fees are static
         setLoading(false)
       })
       .catch(function() { setLoading(false) })
@@ -114,8 +106,8 @@ export default function ManageAcademicsPage() {
       var payload = {
         streams:    streams.map(function(s)  { return { name:s.name, icon:s.icon, clr:s.clr, description:s.description, eligibility:s.eligibility, subjects:s.subjects } }),
         classes:    classes.map(function(c)  { return { name:c.name, age:c.age, students:c.students, sections:c.sections } }),
-        fees:       fees.map(function(f)     { return { category:f.category, tuition:f.tuition, annual:f.annual, admission:f.admission, transport:f.transport } }),
         curriculum: curr,
+        // fees intentionally omitted from payload
       }
       await academicsAPI.update(payload)
       setSaved(true); setTimeout(function() { setSaved(false) }, 2500)
@@ -146,7 +138,6 @@ export default function ManageAcademicsPage() {
   }
 
   function updateClass(id,field,val)  { setClasses(function(p){return p.map(function(c){return c.id===id?{...c,[field]:val}:c})}) }
-  function updateFee(id,field,val)    { setFees(function(p){return p.map(function(f){return f.id===id?{...f,[field]:val}:f})}) }
   function updateStream(id,field,val) { setStreams(function(p){return p.map(function(s){return s.id===id?{...s,[field]:val}:s})}) }
   function updateStreamSubject(id,idx,val) {
     setStreams(function(prev){return prev.map(function(s){
@@ -173,8 +164,6 @@ export default function ManageAcademicsPage() {
         .mac-streams { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; }
         .mac-currgrid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
         .mac-tbl-wrap { overflow-x:auto; } .mac-tbl-wrap table { min-width:480px; width:100%; border-collapse:collapse; }
-        .mac-fee-wrap { overflow-x:auto; } .mac-fee-wrap table { min-width:560px; width:100%; border-collapse:collapse; }
-        .mac-fee-inputs { display:flex; align-items:center; gap:4px; }
         @media (max-width:900px) { .mac-streams { grid-template-columns:1fr 1fr; } }
         @media (max-width:640px) { .mac-hdr { flex-direction:column; align-items:stretch; } .mac-save { width:100%; } .mac-streams { grid-template-columns:1fr; } .mac-currgrid { grid-template-columns:1fr; } .mac-tab-btn { font-size:11px; padding:7px 11px; } }
       `}</style>
@@ -182,7 +171,7 @@ export default function ManageAcademicsPage() {
       <div className="mac-hdr">
         <div>
           <h1 style={{fontFamily:"'Playfair Display',serif",fontSize:'clamp(18px,3vw,22px)',fontWeight:'700',color:'#1C0A00',margin:'0 0 4px'}}>Academics Management</h1>
-          <p style={{fontSize:'13px',color:'#B87832',margin:0}}>Edit streams, classes, fee structure, curriculum and syllabus PDFs</p>
+          <p style={{fontSize:'13px',color:'#B87832',margin:0}}>Edit streams, classes, curriculum and syllabus PDFs</p>
         </div>
         {tab !== 'Syllabus Upload' && (
           <button className="mac-save" onClick={handleSave} disabled={saving}
@@ -266,42 +255,14 @@ export default function ManageAcademicsPage() {
                   return (
                     <tr key={cls.id} style={{borderBottom:'1px solid rgba(232,118,26,.06)',background:i%2===0?'#fff':'#FFFDF8'}}>
                       <td style={{padding:'7px 14px',fontWeight:'700',fontSize:'13px',color:'#1C0A00',whiteSpace:'nowrap'}}>{cls.name}</td>
-                      <td style={{padding:'7px 14px'}}><input className="mac-cls-age" value={cls.age} onChange={function(e){updateClass(cls.id,'age',e.target.value)}} style={{...s.input,width:'110px',padding:'5px 8px',fontSize:'12.5px'}} /></td>
-                      <td style={{padding:'7px 14px'}}><input className="mac-cls-stu" value={cls.students} onChange={function(e){updateClass(cls.id,'students',e.target.value)}} style={{...s.input,width:'70px',padding:'5px 8px',fontSize:'12.5px',textAlign:'center'}} /></td>
-                      <td style={{padding:'7px 14px'}}><input className="mac-cls-sec" value={cls.sections} onChange={function(e){updateClass(cls.id,'sections',e.target.value)}} style={{...s.input,width:'55px',padding:'5px 8px',fontSize:'12.5px',textAlign:'center'}} /></td>
+                      <td style={{padding:'7px 14px'}}><input value={cls.age} onChange={function(e){updateClass(cls.id,'age',e.target.value)}} style={{...s.input,width:'110px',padding:'5px 8px',fontSize:'12.5px'}} /></td>
+                      <td style={{padding:'7px 14px'}}><input value={cls.students} onChange={function(e){updateClass(cls.id,'students',e.target.value)}} style={{...s.input,width:'70px',padding:'5px 8px',fontSize:'12.5px',textAlign:'center'}} /></td>
+                      <td style={{padding:'7px 14px'}}><input value={cls.sections} onChange={function(e){updateClass(cls.id,'sections',e.target.value)}} style={{...s.input,width:'55px',padding:'5px 8px',fontSize:'12.5px',textAlign:'center'}} /></td>
                     </tr>
                   )
                 })}
               </tbody>
             </table>
-          </div>
-        </div>
-      )}
-
-      {tab === 'Fee Structure' && (
-        <div style={{...s.card,padding:'0',overflow:'hidden'}}>
-          <div style={{padding:'14px 18px',borderBottom:'1px solid rgba(232,118,26,.1)',display:'flex',alignItems:'center',gap:'8px'}}>
-            <div style={{width:'30px',height:'30px',borderRadius:'8px',background:'rgba(34,163,90,.1)',display:'flex',alignItems:'center',justifyContent:'center'}}><FaMoneyBillWave size={14} color="#22a35a"/></div>
-            <div style={s.h2}>Fee Structure (Monthly, in ₹)</div>
-          </div>
-          <div className="mac-fee-wrap">
-            <table>
-              <thead><tr style={{background:'#FFF6EA'}}>{['Category','Tuition/mo','Annual','Admission','Transport/mo'].map(function(h){ return <th key={h} style={{padding:'10px 14px',fontSize:'11px',fontWeight:'800',color:'#B87832',letterSpacing:'.8px',textTransform:'uppercase',textAlign:'left',borderBottom:'1.5px solid rgba(232,118,26,.1)',whiteSpace:'nowrap'}}>{h}</th> })}</tr></thead>
-              <tbody>
-                {fees.map(function(fee,i){
-                  return (
-                    <tr key={fee.id} style={{borderBottom:'1px solid rgba(232,118,26,.06)',background:i%2===0?'#fff':'#FFFDF8'}}>
-                      <td style={{padding:'7px 14px'}}><input className="mac-fee-cat" value={fee.category} onChange={function(e){updateFee(fee.id,'category',e.target.value)}} style={{...s.input,minWidth:'150px',padding:'5px 8px',fontSize:'12.5px'}} /></td>
-                      {['tuition','annual','admission','transport'].map(function(field){ return (<td key={field} style={{padding:'7px 14px'}}><div className="mac-fee-inputs"><span style={{fontSize:'12px',color:'#22a35a',fontWeight:'700',flexShrink:0}}>₹</span><input className="mac-fee-amt" value={fee[field]} onChange={function(e){updateFee(fee.id,field,e.target.value)}} style={{...s.input,width:'80px',padding:'5px 8px',fontSize:'12.5px',textAlign:'right'}} /></div></td>) })}
-                    </tr>
-                  )
-                })}
-              </tbody>
-            </table>
-          </div>
-          <div style={{padding:'12px 18px',borderTop:'1px solid rgba(232,118,26,.08)'}}>
-            <button onClick={function(){setFees(function(prev){return prev.concat([{id:Date.now(),category:'',tuition:'',annual:'',admission:'',transport:''}])})}}
-              style={{padding:'7px 16px',borderRadius:'8px',border:'1.5px dashed rgba(232,118,26,.3)',background:'transparent',color:'#E8761A',fontSize:'12px',fontWeight:'700',cursor:'pointer'}}>+ Add Category</button>
           </div>
         </div>
       )}
