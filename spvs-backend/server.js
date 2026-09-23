@@ -11,12 +11,13 @@ connectDB()
 const app = express()   // ← THIS WAS MISSING
 
 app.use(cors({
-  origin: [
-    'http://localhost:5173',
-    'http://localhost:3000',
-    'https://spvs-green.vercel.app'
-  ],
-  credentials: true
+  origin: function (origin, callback) {
+    // Allow any incoming origin (Hostinger domain, Vercel, localhost, etc.)
+    callback(null, true)
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
 }))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
